@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap');
+
+.body{
+  background-color: black; 
+}
+
+
+
+.navbar-brand.mi-fri:hover{
+
+  color: aquamarine;
+}
+
+.mi-navbar .container-fluid {
+  display: flex;
+  flex-direction: column; /* Coloca los elementos hijos uno debajo del otro */
+  align-items: flex-start; /* Alinea los elementos al inicio (izquierda por defecto) */
+}
+
+.mi-navbar .lead {
+  /* Otros estilos que ya tengas */
+  width: 50%; /* El párrafo ocupará el 50% del ancho de su contenedor padre (.container-fluid) */
+  /* width: 300px; /* El párrafo tendrá un ancho fijo de 300 píxeles */
+  text-align: center; /* O la alineación que prefieras */
+  color: antiquewhite;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.table.table-striped.table-dark{
+    width: 90%;
+    margin-left: 4%;
+}
+
+.mi-navbar{
+    width: 100%;
+    height: 800px;
+    background-image: url('../img/princi_2.jpg');
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    
+}
+
+.mi-navbar a{
+    
+    font-size: 100px;
+    Font-family:"Cal Sans", sans-serif;
+    color: antiquewhite;
+    margin-bottom: 18px;
+    
+}
+
+.mi-navbar .lead:hover{
+    
+  color: aquamarine;
+  scale: 1.1;
+  
+}
+
+/* Estilos generales main */
+main {
+    margin-top: 6%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  section {
+    padding: 4rem 2rem;
+  }
+  
+  h1, h2, h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero {
+    background-color: #f4f7fa;
+    text-align: center;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  
+  .hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  
+  .btn-demo {
+    background-color: aquamarine;
+    color: black;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+  .how-it-works {
+    background-color: #7c199b;
+    width: 94%;
+    margin-left: 3%;
+    border-radius: 10px;
+    color: antiquewhite;
+  }
+  
+  .steps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+  
+  .step {
+    flex: 1 1 250px;
+    max-width: 300px;
+    text-align: center;
+  }
+  
+  .step img {
+    width: 60px;
+    margin-bottom: 1rem;
+  }
+  
+  .benefits {
+    background-color: #eef2f5;
+    text-align: center;
+    width: 94%;
+    margin-left: 3%;
+    border-radius: 10px;
+  }
+  
+  .benefits ul {
+    list-style: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .benefits li {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+  
+  .target-audience {
+    background-color:#7c199b ;
+    text-align: center;
+    width: 94%;
+    margin: 0 auto;
+    border-radius: 10px;
+    color: antiquewhite;
+  }
+  
+  .testimonials {
+    background-color: #f4f7fa;
+    text-align: center;
+  }
+
+
+
+
+ 
