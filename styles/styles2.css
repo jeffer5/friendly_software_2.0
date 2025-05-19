@@ -1,0 +1,38 @@
+body{
+
+    background-image: url('../img/princi_2.jpg');
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    
+
+}
+
+
+#logo{
+    width: 50%;
+    margin-left: 25%;
+    margin-bottom: 8%;
+}
+
+.card{
+    border: #FF1493 1px solid;
+    background: linear-gradient(to bottom, rgb(31, 31, 101), #FF1493);
+    color: antiquewhite;
+    
+}
+
+.card input{
+    background-color: antiquewhite;
+}
+
+.d-grid{
+    margin-bottom: 3%;
+}
+
+.d-grid.mi-grid{
+
+    width: 50%;
+    margin-left: 25%;
+
+}

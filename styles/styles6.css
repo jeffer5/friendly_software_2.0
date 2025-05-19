@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap');
+
+.mybody{
+  background-image: url(../img/findito.png);
+  background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat;
+    
+}
+
+
+
+
+
+.table.table-striped.table-dark{
+    width: 90%;
+    margin-left: 4%;
+    box-shadow: 2px -2px 7px 2px #FF1493, -2px 2px 7px 2px #FF1493;
+    
+}
+
+
+
+  .btn.btn-primary.volver{
+
+      margin-left: 90%;
+      margin-bottom: 2%;
+  }
+
+  .container.yo{
+    float: left;
+    margin-left: 4%;
+    color: antiquewhite;
+  }
+
+  .container.yo input.id{
+    background-color: #effefe;
+    height: 50px;
+    border-radius: 5px;
+  }
+
+  .btn.btn-primary.crear{
+
+      margin-left: 85%;
+      
+  }
+ 
+  .container.mt-5.mit{
+    margin-left: 40%;
+    color:  #23e5f5;
+    margin-bottom: 5%;
+}

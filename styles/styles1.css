@@ -1,0 +1,48 @@
+ @import url('https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap');
+
+ body{
+    background-image: url('../img/princi_2.jpg');
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    
+  }
+  
+  .manzana{
+    border: aquamarine 2px solid;
+    box-shadow: 2px -2px 7px 2px #FF1493, -2px 2px 7px 2px #0CFFF4;
+    width: 30%;
+    text-align: center;
+    margin-left: 35%;
+    border-radius: 20px;
+    color: antiquewhite;
+    Font-family:"Cal Sans", sans-serif;
+    background: linear-gradient(to bottom, rgb(31, 31, 101), #FF1493);
+    margin-bottom: 2%;
+  }
+
+  .manzana input{
+    background-color: antiquewhite;
+  }
+
+  .manzana select{
+    background-color: antiquewhite;
+  }
+
+  .form-re{
+    margin: 5%;
+  }
+
+  #tittle{
+    font-size: 80px;
+    Font-family:"Cal Sans", sans-serif;
+    color: antiquewhite;
+    margin-bottom: 4%;
+    margin-left: 25%;
+    margin-top: 2%;
+  }
+
+  .btn.btn-primary.volver{
+    margin-left: 48%;
+    Font-family:"Cal Sans", sans-serif;
+  }

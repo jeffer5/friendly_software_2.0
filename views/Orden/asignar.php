@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles8.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 class="tittle">Asignación de ordenes</h1>
+
+    <a href="index.php?action=orden" class="btn btn-primary volver ">volver</a>
+
+<form action="index.php?action=asignarO" method="post" enctype="multipart/form-data" class="form-container"> 
+    <p> Asigne rapidamente una orden de trabajo
+    Seleccionando al operario y la orden a cumplir</p>
+    <label for="usuario" id="usuario">Usuario:</label>
+    <select name="usuario" required>
+        <option value="">Escoja</option>
+        <?php foreach($usuarios as $usuario): ?>
+            <option value="<?= $usuario['id_usu']; ?>"><?= $usuario['nom_usu']; ?></option>
+        <?php endforeach; ?>
+    </select>
+
+    <label for="nro_orden" id="nro_orden">Número de Orden:</label>
+    <select name="nro_orden" required>
+        <option value="">Escoja</option>
+        <?php foreach($ordenes as $orden): ?><option value="<?= $orden['id_ord']; ?>"><?= $orden['nro_ord']; ?></option>
+        <?php endforeach; ?>
+    </select>
+
+    <br><input type="submit" class="btn btn-primary asi" value="Asignar">
+
+</form>
+
+
+<div class="container yo">
+    <form action="index.php?action=buscaru" method="POST">
+            Buscar por id <input type="number" placeholder="ingrese 0 para volver" name="id" class="id">
+    <input type="submit" value="buscar" class="btn btn-primary">
+    </form>
+</div>
+
+
+
+<table class="table table-striped table-dark">
+    <thead >
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre operario</th>
+        <th scope="col">usuario operario</th>
+        <th scope="col">Numero de orden</th>
+        <th scope="col">Nombre del cliente</th>
+        <th scope="col">Fecha de entrega</th>
+        <th scope="col">Producto</th>
+        <th scope="col">Cantidad total</th>
+        <th scope="col">Proceso</th>
+    </tr>
+    </thead>
+    <tbody>
+        <?php if ($detalles): ?>
+            <?php if (isset($detalles['id_det'])): ?>
+                <!-- Si solo se encontró un usuario con ese ID -->
+                <tr>
+                    <td><?php echo $detalles['id_det']; ?></td>
+                    <td><?php echo $detalles['nom_usu']; ?></td>
+                    <td><?php echo $detalles['usu_usu']; ?></td>
+                    <td><?php echo $detalles['nro_ord']; ?></td>
+                    <td><?php echo $detalles['nom_cli']; ?></td>
+                    <td><?php echo $detalles['fec_ent']; ?></td>
+                    <td><?php echo $detalles['nom_pro']; ?></td>
+                    <td><?php echo $detalles['can_tot']; ?></td>
+                    <td><?php echo $detalles['pro_ord']; ?></td>      
+                </tr>
+            <?php else: ?>
+                <!-- Si no se ha encontrado un usuario específico, mostramos todos -->
+                <?php foreach ($detalles as $destalle): ?>
+                    <tr>
+                         <td><?php echo $destalle['id_det']; ?></td>
+                        <td><?php echo $destalle['nom_usu']; ?></td>
+                        <td><?php echo $destalle['usu_usu']; ?></td>
+                        <td><?php echo $destalle['nro_ord']; ?></td>
+                        <td><?php echo $destalle['nom_cli']; ?></td>
+                        <td><?php echo $destalle['fec_ent']; ?></td>
+                        <td><?php echo $destalle['nom_pro']; ?></td>
+                        <td><?php echo $destalle['can_tot']; ?></td>
+                        <td><?php echo $destalle['pro_ord']; ?></td>
+
+                    </tr>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        <?php else: ?>
+            <tr><td colspan="11">No se encontraron resultados.</td></tr>
+        <?php endif; ?>
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

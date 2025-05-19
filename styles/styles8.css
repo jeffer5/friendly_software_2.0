@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap');
+
+body{
+
+    background-image: url(../img/findito.png);
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    Font-family:"Cal Sans", sans-serif;
+
+}
+
+.container.yo{
+
+    margin-left: 40%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    color: antiquewhite;
+    Font-family:"Cal Sans", sans-serif;
+
+}
+
+.tittle{
+    margin-left: 39%;
+    margin-top: 2%;
+    color: #FF1493;
+}
+
+.btn.btn-primary.volver{
+
+    margin-left: 92%;
+}
+
+.table.table-striped.table-dark{
+
+    width: 90%;
+    margin-left: 4%;
+    box-shadow: 2px -2px 7px 2px #FF1493, -2px 2px 7px 2px #FF1493;
+
+
+}
+
+.form-container{
+    
+      max-width: 500px;
+      margin: 80px auto;
+      padding: 10px;
+      background: black;
+      border-radius: 10px;
+      color: antiquewhite;
+      text-align: center;
+      box-shadow: 2px -2px 7px 2px #1434fc, -2px 2px 7px 2px #FF1493;
+      Font-family:"Cal Sans", sans-serif;
+}
+
+.form-container p{
+    
+      margin-bottom: 10%;
+}
+
+#nro_orden{
+
+    margin-left: 5%;
+}
+
+.btn.btn-primary.asi{
+    margin-top: 8%;
+   
+}
