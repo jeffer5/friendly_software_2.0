@@ -7,6 +7,7 @@ require_once 'controller/OrdenasigController.php';
 require_once 'controller/OperarioController.php';
 
 
+
 $action = isset($_GET['action']) ? $_GET['action'] : 'home';
 $id = isset($_GET['id']) ? $_GET['id'] : null;
 
@@ -16,6 +17,7 @@ $ordenController = new OrdenController();
 $estandarController = new EstandarController();
 $ordenasigController = new OrdenasigController();
 $operarioController = new OperarioController();
+
 
 
 
@@ -212,6 +214,12 @@ switch ($action) {
     case 'buscarindi':
         $operarioController->buscarindi(); // Formulario para actualizar
         break;
+    case 'addefi':
+        $operarioController->addefi(); // Formulario para actualizar
+        break;
+
+        
+  
 
 
 }

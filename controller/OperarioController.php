@@ -30,7 +30,45 @@ class OperarioController{
 
         $orden = $this->operario->getorden($usu_usu);
         $promedios = $this->operario->getprom();
+        
         require_once 'views/Operario/registro.php';
+    }
+
+
+    public function addefi(){
+
+        $indicadors = $this->operario->getindi2();
+        
+            foreach($indicadors as $item){
+            if ($item['nom_pro'] == $item['pro_pro'] && $item['pro_ord'] == $item['act_pro']) {
+
+                $estandarMinuto = $item['can_pro'] / $item['tie_pro'];
+                $realMinuto = $item['can_rea'] / $item['tie_gas'];
+
+                $estandarMinuto = round($estandarMinuto, 2);
+                $realMinuto = round($realMinuto, 2);
+
+                $tot_efi = ($realMinuto / $estandarMinuto) * 100;
+                $tot_efi = round($tot_efi, 2); 
+
+                $id_ind_fk = $item['id_ind'];
+
+                // ✅ Verificamos si ya existe antes de insertar
+                if (!$this->operario->existeEficiencia($id_ind_fk)) {
+                    $this->operario->insertefi([
+                        'id_ind_fk' => $id_ind_fk,
+                        'tot_efi' => $tot_efi
+                    ]);
+                }
+            }
+            session_start();
+            $_SESSION['mensaje'] = '¡eficiencia registrada!';
+            header('Location: index.php?action=getindi');
+            
+        }
+
+           
+
     }
 
 
@@ -47,11 +85,12 @@ class OperarioController{
             
             ];
             $this->operario->insertindi($data); // Llamar al modelo para crear el usuario
-            echo "registro exitoso";
-            /*header('Location: index.php?action=todos'); //pagina a donde envia el boton del formulario*/
+           
+            header('Location: index.php?action=getindi'); //pagina a donde envia el boton del formulario*/
 
         }
 
+        
         require_once 'views/Operario/registro.php'; // Mostrar formulario para crear
     }
 
@@ -64,10 +103,11 @@ class OperarioController{
     }
 
 
-
     public function showindi($id){
 
         $indicador = $this->operario->showindi($id);
+
+
         require_once 'views/Operario/show.php'; // Pasar datos a la vista
     }
 

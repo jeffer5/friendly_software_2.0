@@ -150,6 +150,13 @@
                     </div>
                 </div>
                 <br>
+
+                <?php
+
+
+                ?>
+
+
             
                 <button type=submit class="btn btn-primary">Registrar</button>
 

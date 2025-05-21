@@ -8,6 +8,20 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="mybody">
+
+<?php
+    session_start();
+    if (isset($_SESSION['mensaje'])):
+    ?>
+        <div id="alerta-registro" class="alert alert-success alert-dismissible fade show mt-3 mx-3" role="alert">
+            <?= $_SESSION['mensaje'] ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php
+        unset($_SESSION['mensaje']);
+    endif;
+?>
+
     
 <div class="container mt-5 mit">
 <h2>Indicadores</h2>
@@ -36,6 +50,7 @@
         <th scope="col">Producto</th>
         <th scope="col">Proceso</th>
         <th scope="col">Detalle</th>
+        <th scope="col">Subir eficiencia</th>
     </tr>
     </thead>
     <tbody>
@@ -52,6 +67,7 @@
                     <td><?php echo $indicadores['nom_pro']; ?></td>
                     <td><?php echo $indicadores['pro_ord']; ?></td>
                      <td><a href="index.php?action=show&id=<?php echo $usuario['id_ind']; ?>">Ver</a></td>
+                     <td><a href="index.php?action=addefi" class="btn btn-primary buton">Subir eficiencia</a></td>
                 </tr>
             <?php else: ?>
                 <!-- Si no se ha encontrado un usuario específico, mostramos todos -->
@@ -65,7 +81,8 @@
                         <td><?php echo $indicador['nro_ord']; ?></td>
                         <td><?php echo $indicador['nom_pro']; ?></td>
                         <td><?php echo $indicador['pro_ord']; ?></td>
-                         <td><a href="index.php?action=showindi&id=<?php echo $indicador['id_ind']; ?>">Ver</a></td>
+                         <td><a href="index.php?action=showindi&id=<?php echo $indicador['id_ind']; ?>" >Ver</a></td>
+                         <td><a href="index.php?action=addefi"class="btn btn-primary buton">Subir eficiencia</a></td>
                     </tr>
                 <?php endforeach; ?>
             <?php endif; ?>
@@ -76,9 +93,20 @@
 </table>
 
 
+<script>
+    // Esperar 3 segundos (3000 ms) y luego cerrar la alerta automáticamente
+    setTimeout(function() {
+        var alerta = document.getElementById('alerta-registro');
+        if (alerta) {
+            var alertaBootstrap = bootstrap.Alert.getOrCreateInstance(alerta);
+            alertaBootstrap.close();
+        }
+    }, 3000);
+</script>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="javascript/function1.js"></script> 
+    <script src="javascript/function3.js"></script> 
 </body>
 </html>

@@ -96,9 +96,9 @@ class Operario{
 
     public function getindi(){
 
-       $query = $this->db->prepare("SELECT i.id_ind, i.can_rea, i.tie_gas, i.fec_ind, u.usu_usu, o.nro_ord, o.nom_pro, pro_ord
+       $query = $this->db->prepare("SELECT i.id_ind, i.can_rea, i.tie_gas, i.fec_ind, u.usu_usu, o.nro_ord, o.nom_pro, o.pro_ord
                                                 FROM indicador i
-                                                JOIN detalle_orden d ON i.id_pro_fk = d.id_det
+                                                JOIN detalle_orden d ON i.id_det_fk = d.id_det
                                                 JOIN usuario u ON d.id_usu_fk = u.id_usu
                                                 JOIN orden o ON d.id_ord_fk = o.id_ord");
        $query->execute();
@@ -115,27 +115,45 @@ class Operario{
     }
 
 
+    public function getindi2(){
 
-    /*public function insert($id,$data){
-
-       $existe = $this->db->prepare("SELECT 1 FROM eficiencia WHERE id_ind_fk = ? LIMIT 1");
-       $existe->execute([$id]);
-       return $existe->fetch(PDO::FETCH_ASSOC);
-
-        if($existe->rowCount()==0){
-
-        $query = $this->db->prepare("INSERT INTO promedio (pro_pro, act_pro, can_pro, tie_pro) 
-                                     VALUES (?, ?, ?, ?)"); //? sentencias preparadas, seguras contra inyecciones SQL
-        return $query->execute([
-            $data['pro_pro'],
-            $data['act_pro'],
-            $data['can_pro'],
-            $data['tie_pro']
-        ]);
-
-
+       $query = $this->db->prepare("SELECT i.id_ind, i.can_rea, i.tie_gas, i.fec_ind, u.usu_usu, o.nro_ord, o.nom_pro, o.pro_ord,
+                                           p.pro_pro, p.act_pro, p.can_pro, p.tie_pro , p.id_pro                   
+                                                FROM indicador i
+                                                JOIN detalle_orden d ON i.id_det_fk = d.id_det
+                                                JOIN promedio p ON i.id_pro_fk = p.id_pro
+                                                JOIN usuario u ON d.id_usu_fk = u.id_usu
+                                                JOIN orden o ON d.id_ord_fk = o.id_ord");
+       $query->execute();
+       $indicadors = $query->fetchAll(PDO::FETCH_ASSOC);
+        
+        // Verificamos si se encontró un usuario
+        if ($indicadors ) {
+            return $indicadors;  // Retornamos el usuario encontrado
+        } else {
+            return null;  // Si no se encontró el usuario, devolvemos null
         }
-    }*/
+
+
+    }
+
+
+    public function existeEficiencia($id_ind_fk) {
+        $query = $this->db->prepare("SELECT COUNT(*) FROM eficiencia WHERE id_ind_fk = ?");
+        $query->execute([$id_ind_fk]);
+        return $query->fetchColumn() > 0; // Devuelve true si existe, false si no
+    }
+
+
+    public function insertefi($data){
+
+        $query = $this->db->prepare("INSERT INTO eficiencia (id_ind_fk, tot_efi) 
+                                     VALUES (?, ?)"); //? sentencias preparadas, seguras contra inyecciones SQL
+        return $query->execute([
+            $data['id_ind_fk'],
+            $data['tot_efi']
+        ]); 
+    }
 
 
     public function showindi($id){
