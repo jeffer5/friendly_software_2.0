@@ -35,9 +35,9 @@ class OperarioController{
     }
 
 
-    public function addefi(){
-
-        $indicadors = $this->operario->getindi2();
+    public function addefi($id){
+        session_start();
+        $indicadors = $this->operario->getindi2($id);
         
             foreach($indicadors as $item){
             if ($item['nom_pro'] == $item['pro_pro'] && $item['pro_ord'] == $item['act_pro']) {
@@ -50,24 +50,32 @@ class OperarioController{
 
                 $tot_efi = ($realMinuto / $estandarMinuto) * 100;
                 $tot_efi = round($tot_efi, 2); 
+   
+                if($tot_efi <=100 ){
 
-                $id_ind_fk = $item['id_ind'];
+                    $id_ind_fk = $item['id_ind'];
 
-                // ✅ Verificamos si ya existe antes de insertar
-                if (!$this->operario->existeEficiencia($id_ind_fk)) {
-                    $this->operario->insertefi([
-                        'id_ind_fk' => $id_ind_fk,
-                        'tot_efi' => $tot_efi
-                    ]);
+                    // Verificamos si ya existe antes de insertar
+                    if (!$this->operario->existeEficiencia($id_ind_fk)) {
+                        $this->operario->insertefi([
+                            'id_ind_fk' => $id_ind_fk,
+                            'tot_efi' => $tot_efi
+                        ]);
+                        $registro_exitoso = true;
+                    }
                 }
-            }
-            session_start();
-            $_SESSION['mensaje'] = '¡eficiencia registrada!';
-            header('Location: index.php?action=getindi');
+
+            } 
             
         }
 
-           
+        if ($registro_exitoso) {
+        $_SESSION['mensaje'] = '¡Eficiencia registrada!';
+        header('Location: index.php?action=getindi');
+        } else {
+            $_SESSION['mensa'] = 'No se registró ninguna eficiencia';
+            header('Location: index.php?action=getindi');
+        }
 
     }
 

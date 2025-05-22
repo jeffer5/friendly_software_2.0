@@ -1,0 +1,93 @@
+<?php
+
+require_once 'config/database.php';
+
+class Resultado{
+    private $db;
+
+
+    public function __construct(){
+        $this->db = Database::connect();
+
+    }
+
+
+    public function getAllEfi(){
+        $query = $this->db->prepare("SELECT e.id_efi, e.id_ind_fk, e.tot_efi,i.id_ind, i.can_rea, i.tie_gas, i.fec_ind, u.usu_usu, o.nro_ord, o.nom_pro, o.pro_ord,
+                                           p.pro_pro, p.act_pro, p.can_pro, p.tie_pro , p.id_pro                   
+                                                FROM eficiencia e
+                                                JOIN indicador i ON id_ind_fk = i.id_ind
+                                                JOIN detalle_orden d ON i.id_det_fk = d.id_det
+                                                JOIN promedio p ON i.id_pro_fk = p.id_pro
+                                                JOIN usuario u ON d.id_usu_fk = u.id_usu
+                                                JOIN orden o ON d.id_ord_fk = o.id_ord
+                                                ");
+
+        $query->execute();
+        $getAll = $query->fetchAll(PDO::FETCH_ASSOC); 
+
+         if ($getAll) {
+            return $getAll;  // Retornamos el usuario encontrado
+        } else {
+            return null;  // Si no se encontró el usuario, devolvemos null
+        }
+
+    }
+
+
+    public function getAllbyUsu($usu_usu){
+        $query = $this->db->prepare("SELECT e.id_efi, e.id_ind_fk, e.tot_efi,i.id_ind, i.can_rea, i.tie_gas, i.fec_ind, u.usu_usu, o.nro_ord, o.nom_pro, o.pro_ord,
+                                           p.pro_pro, p.act_pro, p.can_pro, p.tie_pro , p.id_pro                   
+                                                FROM eficiencia e 
+                                                JOIN indicador i ON id_ind_fk = i.id_ind
+                                                JOIN detalle_orden d ON i.id_det_fk = d.id_det
+                                                JOIN promedio p ON i.id_pro_fk = p.id_pro
+                                                JOIN usuario u ON d.id_usu_fk = u.id_usu
+                                                JOIN orden o ON d.id_ord_fk = o.id_ord
+                                                WHERE usu_usu = ?");
+    
+        $query->execute([$usu_usu]);
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
+
+    public function getAllbyOrd($nro_ord){
+        $query = $this->db->prepare("SELECT e.id_efi, e.id_ind_efi, e.tot_efi,i.id_ind, i.can_rea, i.tie_gas, i.fec_ind, u.usu_usu, o.nro_ord, o.nom_pro, o.pro_ord,
+                                           p.pro_pro, p.act_pro, p.can_pro, p.tie_pro , p.id_pro                   
+                                                FROM eficiencia e
+                                                JOIN indicador i ON id_ind_fk = i.id_ind
+                                                JOIN detalle_orden d ON i.id_det_fk = d.id_det
+                                                JOIN promedio p ON i.id_pro_fk = p.id_pro
+                                                JOIN usuario u ON d.id_usu_fk = u.id_usu
+                                                JOIN orden o ON d.id_ord_fk = o.id_ord
+                                                WHERE nro_ord = ?");
+    
+        $query->execute([$nro_ord]);
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
+
+     public function quantityOrderByUsu($usu_usu) {
+        $query = $this->db->prepare("SELECT COUNT(*) as total                  
+                                                FROM eficiencia e
+                                                JOIN indicador i ON id_ind_fk = i.id_ind
+                                                JOIN detalle_orden d ON i.id_det_fk = d.id_det
+                                                JOIN promedio p ON i.id_pro_fk = p.id_pro
+                                                JOIN usuario u ON d.id_usu_fk = u.id_usu
+                                                JOIN orden o ON d.id_ord_fk = o.id_ord
+                                                WHERE usu_usu = ?");
+    
+        $query->execute([$usu_usu]);
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+        
+    }
+
+
+
+    
+
+
+
+}

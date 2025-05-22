@@ -27,10 +27,7 @@
   font-weight: bold;
 }
 
-.table.table-striped.table-dark{
-    width: 90%;
-    margin-left: 4%;
-}
+
 
 .mi-navbar{
     width: 100%;
@@ -178,4 +175,18 @@ main {
   .container.mt-5.mit{
 
     color: antiquewhite;
+}
+
+
+
+.container-fluid p{
+
+  background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    color: #fff;
+
 }

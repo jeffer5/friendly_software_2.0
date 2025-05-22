@@ -39,7 +39,7 @@ $user = $_SESSION['user'];
                     <h2>Estandares</h2>
             </div>
             <div class="steps"> <!-- Contenedor de pasos -->
-                    <a href="index.php?action=getindicador" ><img class="image" src="img/results.png" alt=""></a>
+                    <a href="index.php?action=showOpe" ><img class="image" src="img/results.png" alt=""></a>
                     <h2>Resultados</h2>
             </div>
 

@@ -5,6 +5,7 @@ require_once 'controller/OrdenController.php';
 require_once 'controller/EstandarController.php';
 require_once 'controller/OrdenasigController.php';
 require_once 'controller/OperarioController.php';
+require_once 'controller/ResultadoController.php';
 
 
 
@@ -17,6 +18,7 @@ $ordenController = new OrdenController();
 $estandarController = new EstandarController();
 $ordenasigController = new OrdenasigController();
 $operarioController = new OperarioController();
+$resultadoController = new ResultadoController();
 
 
 
@@ -25,6 +27,9 @@ $operarioController = new OperarioController();
 switch ($action) {
     case 'home':
         require 'views/home.php'; // Página de bienvenida
+        break;
+    case 'nosotros':
+        require 'views/nosotros.php'; // Página de bienvenida
         break;
     case 'orden':
          session_start();
@@ -215,8 +220,14 @@ switch ($action) {
         $operarioController->buscarindi(); // Formulario para actualizar
         break;
     case 'addefi':
-        $operarioController->addefi(); // Formulario para actualizar
+        $operarioController->addefi($id); // Formulario para actualizar
         break;
+    //acciones resultado
+    case 'showOpe':
+        $resultadoController->showOpe(); // Formulario para actualizar
+        break;
+
+
 
         
   

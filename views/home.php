@@ -31,7 +31,7 @@
           </button>
           <div class="collapse navbar-collapse" id="menu">
             <ul class="navbar-nav ms-auto">
-              <li class="nav-item"><a class="nav-link" href="index.php?action=create">Nosotros</a></li>
+              <li class="nav-item"><a class="nav-link" href="index.php?action=nosotros">Nosotros</a></li>
               <li class="nav-item"><a class="nav-link" href="index.php?action=login">Inicio sesion</a></li>
               <li class="nav-item"><a class="nav-link" href="index.php?action=registrar">Registro</a></li>
             </ul>
@@ -45,7 +45,7 @@
     <nav class="navbar mi-navbar navbar-expand-lg">
         <div class="container-fluid">
           <a class="navbar-brand mi-fri" href="#">Friendly software</a>
-          <p class="lead text-center">Libera el Potencial de tu Equipo con Datos Inteligentes 
+          <p class="lead text-center pa">Libera el Potencial de tu Equipo con Datos Inteligentes 
           Analiza la eficiencia del equipo en tiempo real y entrega al área de RRHH información clara y accionable.
           </p>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">

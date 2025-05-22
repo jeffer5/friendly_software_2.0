@@ -9,7 +9,7 @@
 </head>
 <body class="mybody">
 
-<?php
+    <?php
     session_start();
     if (isset($_SESSION['mensaje'])):
     ?>
@@ -20,7 +20,19 @@
     <?php
         unset($_SESSION['mensaje']);
     endif;
-?>
+    ?>
+    <?php
+   
+    if (isset($_SESSION['mensa'])):
+    ?>
+        <div id="alerta-registro" class="alert alert-danger alert-dismissible fade show mt-3 mx-3" role="alert">
+            <?= $_SESSION['mensa'] ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php
+        unset($_SESSION['mensa']);
+    endif;
+    ?>
 
     
 <div class="container mt-5 mit">
@@ -51,6 +63,7 @@
         <th scope="col">Proceso</th>
         <th scope="col">Detalle</th>
         <th scope="col">Subir eficiencia</th>
+        <th scope="col">checked</th>
     </tr>
     </thead>
     <tbody>
@@ -66,8 +79,9 @@
                     <td><?php echo $indicadores['nro_ord']; ?></td>
                     <td><?php echo $indicadores['nom_pro']; ?></td>
                     <td><?php echo $indicadores['pro_ord']; ?></td>
-                     <td><a href="index.php?action=show&id=<?php echo $usuario['id_ind']; ?>">Ver</a></td>
-                     <td><a href="index.php?action=addefi" class="btn btn-primary buton">Subir eficiencia</a></td>
+                     <td><a href="index.php?action=show&id=<?php echo $indicadores['id_ind']; ?>">Ver</a></td>
+                     <td><a href="index.php?action=addefi&id=<?php echo $indicadores['id_ind']; ?>" class="btn btn-primary buton" >Subir eficiencia</a></td>
+                     <td><input type="radio" id="checkbox"></td>
                 </tr>
             <?php else: ?>
                 <!-- Si no se ha encontrado un usuario específico, mostramos todos -->
@@ -82,7 +96,9 @@
                         <td><?php echo $indicador['nom_pro']; ?></td>
                         <td><?php echo $indicador['pro_ord']; ?></td>
                          <td><a href="index.php?action=showindi&id=<?php echo $indicador['id_ind']; ?>" >Ver</a></td>
-                         <td><a href="index.php?action=addefi"class="btn btn-primary buton">Subir eficiencia</a></td>
+                         <td><a href="index.php?action=addefi&id=<?php echo $indicador['id_ind']; ?>"class="btn btn-primary buton" >Subir eficiencia</a></td>
+                         <td><input type="radio" id="checkbox"></td>
+              
                     </tr>
                 <?php endforeach; ?>
             <?php endif; ?>
@@ -107,6 +123,6 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="javascript/function3.js"></script> 
+    <script src="/javascript/function3.js"></script>
 </body>
 </html>

@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap');
+
+.body{
+   background-image: url('../img/princi_2.jpg');
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+
+.navbar-brand.mi-fri:hover{
+
+  color: aquamarine;
+}
+
+/* Estilos generales main */
+main {
+    margin-top: 4%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #f9f7f7;
+    line-height: 1.8;
+  }
+
+  .parr{
+
+    width: 60%;
+    font-size: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    color: #fff;
+     
+    
+
+
+  }
+  
+  .title{
+    color:aquamarine;
+    
+  }
+
+  .title:hover{
+    scale: 1.1;
+    color:aqua;
+  }
+  
+ .btn.btn-primary.volver{
+    Font-family:"Cal Sans", sans-serif;
+    width: 10%;
+    height: 35%;
+  }
+
+  .footer{
+    color:#f9f7f7;
+    text-align: center;
+    display:flex;
+    margin-top: 4%;
+    background-color:black;
+    padding: 1%;
+
+
+  }
+  .footer-contenido{
+    margin: auto;
+    
+
+  }
+  .redes{
+    color:blue;
+  }
+
+  
+
+  
+
+  
+
+  
+  
+  
+ 
+  
+  
+
+  
+
+
+  
+ 

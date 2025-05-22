@@ -1,9 +1,6 @@
-function configurarBoton() {
-    const boton = document.querySelector('.btn.btn-primary.buton');
-    boton.addEventListener('click', function () {
-        boton.classList.add('pressed');
-    });
+function checked() {
+    
 }
 
 // Puedes llamarla así si quieres ejecutarla de inmediato:
-configurarBoton();
+checked();

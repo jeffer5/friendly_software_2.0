@@ -51,5 +51,9 @@
 
 .btn.btn-primary.buton.pressed{
 
-  background-color: green;
+  background-color: green !important;
+}
+
+.pressed{
+  background-color: green !important;
 }
