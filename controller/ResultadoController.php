@@ -12,13 +12,45 @@ class ResultadoController{
     }
 
 
-    public function showOpe(){
+    public function showAllEfi(){
 
         $todos = $this->resultado->getAllEfi();
-        require_once 'views/Resultados/principal.php';
+        require_once 'views/Resultados/showEfi.php';
     }
+
+
+    public function conUsu(){
+
+       
+         $usuarios = $this->resultado->getAllEfi();
+         require_once 'views/Resultados/consultarUsu.php';    
+        
+
+    }
+
+
+    public function conUsu2(){
+
+        $id_usu = $_REQUEST['usuario'];
+
+        $usuarioes = $this->resultado->getAllbyUsu($id_usu); 
+        $usuarios = $this->resultado->getAllEfi();
+        include 'views/Resultados/consultarUsu.php';
+
+    
+    }
+   
+
+
+  
+
+
+}
+
+
+    
+
     
 
 
 
-}

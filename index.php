@@ -223,11 +223,20 @@ switch ($action) {
         $operarioController->addefi($id); // Formulario para actualizar
         break;
     //acciones resultado
-    case 'showOpe':
-        $resultadoController->showOpe(); // Formulario para actualizar
+    case 'principal':
+        require 'views/Resultados/principal.php';
         break;
-
-
+    case 'showAllEfi':
+        $resultadoController->showAllEfi();
+        break;
+    case 'conUsu':
+        $resultadoController->conUsu();
+        break;
+    case 'conUsu2':
+        $resultadoController->conUsu2();
+        break;
+ 
+ 
 
         
   
