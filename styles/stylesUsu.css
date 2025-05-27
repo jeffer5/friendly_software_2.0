@@ -138,10 +138,80 @@
         border-radius: 2%;
     }
 
-.table.table-striped.table-dark{
-  width: 70%;
-  margin-left: 12%;
-  margin-top: 5%;
+  .table.table-striped{
+    width: 50%;
+    margin-left: 12%;
+    margin-top: 5%;
+    box-shadow: 2px -2px 7px 2px #0CFFF4, -2px 2px 7px 2px #FF1493 ;
+  
+  }
+
+  .table.table-striped th{
+    background-color: #FF1493 !important;
+    color: white !important;
+    Font-family:"Cal Sans", sans-serif;
+    font-size: 20px;
+  }
+
+  .tittle{
+    background-color:#222 !important;
+    color: white !important;
+    Font-family:"Cal Sans", sans-serif;
+    
+  }
+ 
+   .titt{
+    background-color: #363636 !important;
+    color: white !important;
+    Font-family:"Cal Sans", sans-serif;
+  }
+
+  circle{
+    fill: none;
+    stroke-width: 10;
+    transform: rotate(-90deg);
+    transform-origin: 50%;
+    stroke-dasharray: 100 100;
+    stroke: #aaa;
+  }
+
+@keyframes rellenar{
+  to{
+   stroke-dasharray:  var(--porcentaje) 100;
+  }
+}
+
+circle:nth-child(2){
+  stroke: aqua;
+  stroke-dasharray: 0 100;
+  animation: rellenar .35s linear forwards;
 }
 
 
+.porcentaje{
+  position: relative;
+  margin-left: 80%;
+}
+
+.porcentaje span{
+  position: absolute;
+  width: 150px;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  bottom: 0%;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 18px/1em aqua ;
+
+}
+
+.valor{
+  margin-left: 80%;
+}
+
+.sidebar a{
+  color: white !important;
+}

@@ -143,3 +143,8 @@
   margin-left: 12%;
   margin-top: 5%;
 }
+
+
+.sidebar a{
+  color: white !important;
+}

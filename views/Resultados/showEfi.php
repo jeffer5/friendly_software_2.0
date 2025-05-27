@@ -10,8 +10,8 @@
 <body>
     
 
-<div class="sidebar">
-        <a href="index.php">Inicio</a>
+ <div class="sidebar">
+        <a href="index.php?action=showAllEfi">Inicio</a>
         
         <a onclick="toggleSubmenu('perfilSubmenu', this)">
             Operario <span class="toggle-icon">></span>
@@ -21,16 +21,16 @@
         </div>
 
         <a onclick="toggleSubmenu('otroSubmenu', this)">
-            Perfil <span class="toggle-icon">></span>
+            Orden <span class="toggle-icon">></span>
         </a>
         <div class="submenu" id="otroSubmenu">
-            <a href="ver_perfil.php">Ver Perfil</a>
-            <a href="editar_perfil.php">Editar Perfil</a>
+            <a href="index.php?action=conOrd1">Consultar orden</a>
         </div>
 
          <a href="index.php?action=showAllEfi">Eficiencias completas</a>
         <a href="cerrar_sesion.php">Cerrar sesión</a>
     </div>
+
 
     <div class="content">
     <h1>Bienvenido</h1>
@@ -42,7 +42,11 @@
     <table class="table table-striped table-dark">
     <thead >
     <tr>
+        <th colspan="9"  id="tittle">Eficiencias totales</th>
+    </tr>    
+    <tr>
         <th scope="col">ID eficiencia</th>
+        <th scope="col">Numero de orden</th>
         <th scope="col">Total eficiencia</th>
         <th scope="col">Cantidad realizada</th>
         <th scope="col">Tiempo gastado</th>
@@ -56,7 +60,16 @@
         <?php foreach ($todos as $usuario): ?>
                     <tr>
                         <td><?php echo $usuario['id_efi']; ?></td>
-                        <td><?php echo $usuario['tot_efi']; ?></td>
+                        <td><?php echo $usuario['nro_ord']; ?></td>
+                        <td>
+                            <div class="porcentaje" style="--porcentaje: <?= $usuario['tot_efi'] ?>">
+                            <svg width="100" height="100">
+                                <circle r="35" cx="50%" cy="50%" pathlength="100"/>
+                                <circle r="35" cx="50%" cy="50%" pathlength="100"/>
+                            </svg>
+                            <span><?= $usuario['tot_efi'] ?>%</span>
+                            </div>
+                        </td>
                         <td><?php echo $usuario['can_rea']; ?></td>
                         <td><?php echo $usuario['tie_gas']; ?></td>
                         <td><?php echo $usuario['fec_ind']; ?></td>

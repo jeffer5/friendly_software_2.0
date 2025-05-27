@@ -12,7 +12,7 @@
 
 
  <div class="sidebar">
-        <a href="index.php">Inicio</a>
+        <a href="index.php?action=showAllEfi">Inicio</a>
         
         <a onclick="toggleSubmenu('perfilSubmenu', this)">
             Operario <span class="toggle-icon">></span>
@@ -22,16 +22,16 @@
         </div>
 
         <a onclick="toggleSubmenu('otroSubmenu', this)">
-            Perfil <span class="toggle-icon">></span>
+            Orden <span class="toggle-icon">></span>
         </a>
         <div class="submenu" id="otroSubmenu">
-            <a href="ver_perfil.php">Ver Perfil</a>
-            <a href="editar_perfil.php">Editar Perfil</a>
+            <a href="index.php?action=conOrd1">Consultar orden</a>
         </div>
 
          <a href="index.php?action=showAllEfi">Eficiencias completas</a>
         <a href="cerrar_sesion.php">Cerrar sesión</a>
     </div>
+
 
     <div class="content">
     <h1>Bienvenido</h1>
@@ -51,45 +51,71 @@
     
 
 
-   
-
 
     <center>
-<table class="table table-striped table-dark">
-    <tr>
-        <th>Usuario</th>
-        <th>Nombre</th>
-        <th>Apellido</th>
-        <th>Orden</th>
-        <th>Producto</th>
-        <th>Actividad</th>
-        <th>Cantidad</th>
-        <th>Tiempo</th>
-        <th>Eficiencia</th>
-        <th>Fecha</th>
-    </tr>
-
+<table class="table table-striped ">
+    
     <?php if (isset($usuarioes) && count($usuarioes) > 0): ?>
         <?php foreach ($usuarioes as $item): ?>
-            <tr>
-                <td><?= $item['usu_usu'] ?></td>
-                <td><?= $item['nom_usu'] ?></td>
-                <td><?= $item['ape_usu'] ?></td>
-                <td><?= $item['nro_ord'] ?></td>
-                <td><?= $item['nom_pro'] ?></td>
-                <td><?= $item['act_pro'] ?></td>
-                <td><?= $item['can_pro'] ?></td>
-                <td><?= $item['tie_pro'] ?></td>
-                <td><?= $item['tot_efi'] ?></td>
-                <td><?= $item['fec_ind'] ?></td>
+            <tr >
+                <th class="titt">Descripcion del usuario</th>
             </tr>
+
+            <tr>
+                <td class="tittle">Usuario<br>
+                    <div class="valor"><?= $item['usu_usu'] ?></div>
+                </td>
+            </tr>
+            <tr>
+                 <td class="titt">Nombre y Apellido<br>
+                 <div class="valor"><?= $item['nom_usu'] ?></div>
+                 <div class="valor"><?= $item['ape_usu'] ?></div>
+                </td>
+            </tr>
+            <tr>
+                 <td class="tittle">Numero de Orden <br>
+                 <div class="valor"><?= $item['nro_ord'] ?></div>
+                </td>
+            </tr>
+            <tr>
+                 <td class="titt">Nombre del producto<br>
+                 <div class="valor"><?= $item['nom_pro'] ?></div>
+                </td>
+            </tr>
+            <tr>
+                 <td class="tittle">Cantidades<br>
+                 <div class="valor">Cantidad realizada: <?= $item['can_rea'] ?></div><br>
+                 <div class="valor">Tiempo gastado: <?= $item['tie_gas'] ?></div>
+                </td>
+            </tr>
+            <tr>
+                 <td class="titt">Fecha<br>
+                 <div class="valor"><?= $item['fec_ind'] ?>
+                </td>
+            </tr>
+            <tr>
+                 <td class="tittle">Eficiencia<br>
+                 
+                 <div class="porcentaje" style="--porcentaje: <?= $item['tot_efi'] ?>">
+                 <svg width="150" height="150">
+                    <circle r="70" cx="50%" cy="50%" pathlength="100"/>
+                    <circle r="70" cx="50%" cy="50%" pathlength="100"/>
+                </svg>
+                <span><?= $item['tot_efi'] ?>%</span>
+                 </div>
+                </td>
+            </tr>
+
+
+
         <?php endforeach; ?>
     <?php elseif (isset($usuarioes)): ?>
         <tr><td colspan="9">No se encontraron datos para este usuario.</td></tr>
     <?php endif; ?>
-</table>
+</table><br>
 </center>
 
+    <script src="javascript/function4.js"></script>
     <script src="javascript/function3.js"></script>
 </body>
 </html>

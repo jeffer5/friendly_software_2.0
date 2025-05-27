@@ -39,6 +39,27 @@ class ResultadoController{
 
     
     }
+
+    public function conOrd1(){
+
+       
+         $orden = $this->resultado->getAllEfi();
+         require_once 'views/Resultados/consultarOrd.php';    
+        
+
+    }
+
+
+    public function conOrd(){
+
+        $nro_ord = $_REQUEST['orden'];
+
+        $ordenes = $this->resultado->getAllbyOrd($nro_ord); 
+        $orden = $this->resultado->getAllEfi();
+        include 'views/Resultados/consultarOrd.php';
+
+    
+    }
    
 
 

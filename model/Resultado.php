@@ -55,7 +55,7 @@ class Resultado{
     
 
     public function getAllbyOrd($nro_ord){
-        $query = $this->db->prepare("SELECT e.id_efi, e.id_ind_efi, e.tot_efi,i.id_ind, i.can_rea, i.tie_gas, i.fec_ind,u.id_usu , u.usu_usu, o.nro_ord, o.nom_pro, o.pro_ord,
+        $query = $this->db->prepare("SELECT e.id_efi, e.id_ind_fk, e.tot_efi,i.id_ind, i.can_rea, i.tie_gas, i.fec_ind,u.id_usu , u.usu_usu, o.nro_ord, o.nom_pro, o.pro_ord,o.fec_ent,
                                            p.pro_pro, p.act_pro, p.can_pro, p.tie_pro , p.id_pro                   
                                                 FROM eficiencia e
                                                 JOIN indicador i ON id_ind_fk = i.id_ind

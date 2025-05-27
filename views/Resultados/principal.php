@@ -11,7 +11,7 @@
 
 
     <div class="sidebar">
-        <a href="index.php">Inicio</a>
+        <a href="index.php?action=showAllEfi">Inicio</a>
         
         <a onclick="toggleSubmenu('perfilSubmenu', this)">
             Operario <span class="toggle-icon">></span>
@@ -21,11 +21,10 @@
         </div>
 
         <a onclick="toggleSubmenu('otroSubmenu', this)">
-            Perfil <span class="toggle-icon">></span>
+            Orden <span class="toggle-icon">></span>
         </a>
         <div class="submenu" id="otroSubmenu">
-            <a href="ver_perfil.php">Ver Perfil</a>
-            <a href="editar_perfil.php">Editar Perfil</a>
+            <a href="index.php?action=conOrd1">Consultar orden</a>
         </div>
 
          <a href="index.php?action=showAllEfi">Eficiencias completas</a>

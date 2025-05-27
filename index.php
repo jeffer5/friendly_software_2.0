@@ -235,6 +235,13 @@ switch ($action) {
     case 'conUsu2':
         $resultadoController->conUsu2();
         break;
+     case 'conOrd1':
+        $resultadoController->conOrd1();
+        break;
+    case 'conOrd':
+        $resultadoController->conOrd();
+        break;
+   
  
  
 
