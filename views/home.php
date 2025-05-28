@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/stylesfooter.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Bienvenido</title>
 </head>
@@ -62,19 +62,19 @@
             <div class="steps"> <!-- Contenedor de pasos -->
                 <!-- Paso 1: Recolectar -->
                 <div class="step">
-                    <img src="collect-icon.png" alt="Recolectar Datos">
+                    
                     <h3>Recolectar</h3>
                     <p>Recopila automáticamente datos de rendimiento y actividad de los empleados con una configuración mínima.</p>
                 </div>
                 <!-- Paso 2: Analizar -->
                 <div class="step">
-                    <img src="analyze-icon.png" alt="Analizar">
+                    
                     <h3>Analizar</h3>
                     <p>Nuestros algoritmos inteligentes detectan patrones, dinámicas de equipo y tendencias de eficiencia.</p>
                 </div>
                 <!-- Paso 3: Actuar -->
                 <div class="step">
-                    <img src="act-icon.png" alt="Actuar">
+                    
                     <h3>Actuar</h3>
                     <p>Recursos Humanos recibe informes claros y útiles para tomar decisiones basadas en datos reales.</p>
                 </div>
@@ -102,6 +102,24 @@
   
     </main>
 
+
+    
+
+    <footer class="footer" id="asereje">
+        <div class="footer-contenido" id="conte">
+            <p>&copy; 2025 Friendly software. Todos los derechos reservados.</p>
+            <p>
+                Contacto: 
+                <a href="#">Friendlysoftware@jgv.com</a> | Tel: +57 318 727 7707
+            </p>
+            <div class="redes">
+                <a href="#" target="_blank">Facebook</a> |
+                <a href="#" target="_blank">LinkedIn</a> |
+                <a href="#" target="_blank">Instagram</a>
+            </div>
+        </div>  
+    </footer>
+    
 
 
     <script>
