@@ -49,6 +49,28 @@ class ResultadoController{
 
     }
 
+    public function conByData(){
+
+       
+         $orden = $this->resultado->getAllEfi();
+         require_once 'views/Resultados/consultarDat.php';    
+        
+
+    }
+
+    public function conByData2(){
+
+        $fecha1 = $_REQUEST['fecha1'];
+        $fecha2 = $_REQUEST['fecha2'];
+       
+         $ordenes = $this->resultado->conData($fecha1, $fecha2); 
+         $orden = $this->resultado->getAllEfi();
+         require_once 'views/Resultados/consultarDat.php';    
+        
+
+    }
+
+
 
     public function conOrd(){
 

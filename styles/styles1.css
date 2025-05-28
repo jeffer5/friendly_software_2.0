@@ -10,7 +10,7 @@
   
   .manzana{
     border: aquamarine 2px solid;
-    box-shadow: 2px -2px 7px 2px #FF1493, -2px 2px 7px 2px #0CFFF4;
+    box-shadow: 2px -2px 7px 2px #0CFFF4, -2px 2px 7px 2px #FF1493 ;
     width: 30%;
     text-align: center;
     margin-left: 35%;

@@ -18,7 +18,15 @@ class Supervisor {  //creamos una clase supervisor
     }
 
 
+
+    public function existeUsuario($usu_usu, $ndo_usu) {
+        $query = $this->db->prepare("SELECT COUNT(*) FROM usuario WHERE usu_usu = ? OR ndo_usu = ?");
+        $query->execute([$usu_usu , $ndo_usu]);
+        return $query->fetchColumn() > 0; // Devuelve true si existe, false si no
+    }
     
+
+
 
     // Agregar un nuevo operario
     public function create($data) {

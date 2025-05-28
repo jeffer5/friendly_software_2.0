@@ -37,16 +37,11 @@
 
     <div class="content">
     <h1>Bienvenido</h1>
-    <form action="index.php?action=conOrd" method="post" enctype="multipart/form-data" class="form-container"> 
-        <p> Seleccione la orden que esta buscando</p>
+    <form action="index.php?action=conByData2" method="post" enctype="multipart/form-data" class="form-container"> 
+        <p> Ingrese las fechas que esta buscando</p>
         <label for="orden" id="orden"></label>
-        <select name="orden" required>
-            <option value="">Escoja</option>
-            <?php foreach($orden as $item): ?>
-                <option value="<?= $item['nro_ord']; ?>"><?= $item['nro_ord']; ?></option>
-            <?php endforeach; ?>
-        </select>
-
+        <input type="date" name="fecha1" required>
+        <input type="date" name="fecha2" required>
         <input type="submit" class="btn btn-primary asi" value="Escoger" name="escoger">
     </form>
     </div>

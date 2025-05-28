@@ -11,7 +11,11 @@
     
     <h2 id="tittle">Registro Nuevo Supervisor</h2>
 
+        
+
         <div class="manzana">
+
+
             <form class="form-re"  action="index.php?action=registrar" method="POST" enctype="multipart/form-data"> <!--enctype="multipart/form-data" permite que los datos del formulario se dividan en múltiples partes, y cada parte puede contener un tipo de dato diferente (texto o archivo).-->
                 <div class="form-group row">
                     <label for="staticEmail" class="col-sm-3 col-form-label">Nombre</label>

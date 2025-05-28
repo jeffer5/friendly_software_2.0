@@ -9,6 +9,20 @@
 </head>
 <body class="mybody">
     
+     <?php
+    session_start();
+    if (isset($_SESSION['mensaje'])):
+    ?>
+        <div id="alerta-registro" class="alert alert-success alert-dismissible fade show mt-3 mx-3" role="alert">
+            <?= $_SESSION['mensaje'] ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php
+        unset($_SESSION['mensaje']);
+    endif;
+    ?>
+
+
 <div class="container mt-5 mit">
 <h2>Lista de Usuarios</h2>
 </div>

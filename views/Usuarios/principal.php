@@ -16,7 +16,7 @@ $user = $_SESSION['user'];
     </div>
 
 
-    <a href="index.php?action=home" class="btn btn-danger mt-3 cerrar">Cerrar Sesión</a>
+    <a href="index.php?action=logout" class="btn btn-danger mt-3 cerrar">Cerrar Sesión</a>
 
  <main>
     

@@ -1,0 +1,44 @@
+.mybody{
+  background-image: url(../img/findito.png);
+  background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat;
+}
+
+ .btn.btn-primary.volver{
+
+      margin-left: 90%;
+      margin-bottom: 2%;
+  }
+
+  .card.mb-3.tar{
+    margin-top: 2%;
+    box-shadow: 2px -2px 7px 2px #0CFFF4, -2px 2px 7px 2px #FF1493 ;
+    background-color: #212525;
+    color: aliceblue;
+    text-align: justify;
+    
+  }
+
+  .card.mb-3.tar img{
+    margin-top: 16%;
+    border-radius: 100px;
+    width: 150%;
+    height: 80%;
+    
+  }
+
+
+
+  .card-body{
+
+    margin-left: 12%;
+  }
+
+  .title{
+    margin-top: 5%;
+    
+    color: rgb(254, 254, 254);
+    font-size: 50px;
+    
+  }

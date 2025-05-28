@@ -88,6 +88,22 @@ class Resultado{
 
 
 
+    public function conData($fecha1,$fecha2){
+        $query = $this->db->prepare("SELECT e.id_efi, e.id_ind_fk, e.tot_efi,i.id_ind, i.can_rea, i.tie_gas, i.fec_ind,u.id_usu , u.usu_usu, o.nro_ord, o.nom_pro, o.pro_ord,o.fec_ent,
+                                           p.pro_pro, p.act_pro, p.can_pro, p.tie_pro , p.id_pro                   
+                                                FROM eficiencia e
+                                                JOIN indicador i ON id_ind_fk = i.id_ind
+                                                JOIN detalle_orden d ON i.id_det_fk = d.id_det
+                                                JOIN promedio p ON i.id_pro_fk = p.id_pro
+                                                JOIN usuario u ON d.id_usu_fk = u.id_usu
+                                                JOIN orden o ON d.id_ord_fk = o.id_ord
+                                                WHERE i.fec_ind BETWEEN ? AND ?");
+    
+        $query->execute([$fecha1,$fecha2]);
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
     
 
 

@@ -24,75 +24,118 @@ class SupervisorController {
         require_once 'views/usuarios/show.php'; // Pasar datos a la vista
     }
 
+
     // Crear un nuevo usuario
-    public function create() {
-      
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $fotoNombre = null;
-        
-            if (isset($_FILES['fot_usu']) && $_FILES['fot_usu']['error'] == 0) {
-                $fotoNombre = time() . '_' . $_FILES['fot_usu']['name']; // nombre único
-                move_uploaded_file($_FILES['fot_usu']['tmp_name'], 'uploads/' . $fotoNombre);
-            }
-        
-            $data = [
-                'nom_usu' => $_POST['nom_usu'],
-                'ape_usu' => $_POST['ape_usu'],
-                'tdo_usu' => $_POST['tdo_usu'],
-                'ndo_usu' => $_POST['ndo_usu'],
-                'tel_usu' => $_POST['tel_usu'],
-                'usu_usu' => $_POST['usu_usu'],
-                'pass_usu' => $_POST['pass_usu'],
-                'rol_usu' => $_POST['rol_usu'],
-                'fot_usu' => $fotoNombre
-            ];
-        
-            $this->supervisor->create($data); // Llamar al modelo para crear el usuario
-            header('Location: index.php?action=index'); //pagina a donde envia el boton del formulario
-        
+   public function create() {
+    // Verificar si el formulario fue enviado
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // Obtener el nombre de usuario y el número de documento del formulario
+        $usu_usu = $_POST['usu_usu'];
+        $ndo_usu = $_POST['ndo_usu'];
+
+
+        // Verificar si el usuario ya existe en la base de datos
+        $existingUser = $this->supervisor->existeUsuario($usu_usu, $ndo_usu);
+
+
+        if ($existingUser) {
+            // Si el usuario ya existe, mostrar un mensaje de error y redirigir
+            session_start();
+            $_SESSION['mensaje'] = 'El nombre de usuario o el número de documento ya están registrados. Por favor, elija otros.';
+            header('Location: index.php?action=index'); // Redirigir al formulario de registro
+            exit; // Detener la ejecución
         }
 
-        require_once 'views/usuarios/create.php'; // Mostrar formulario para crear
+        // Si el usuario no existe, proceder con el registro
+        $fotoNombre = null;
+
+        // Verificar si se ha subido una foto
+        if (isset($_FILES['fot_usu']) && $_FILES['fot_usu']['error'] == 0) {
+            $fotoNombre = time() . '_' . $_FILES['fot_usu']['name']; // Generar nombre único para la foto
+            move_uploaded_file($_FILES['fot_usu']['tmp_name'], 'uploads/' . $fotoNombre); // Guardar la foto en el servidor
+        }
+
+        // Preparar los datos del nuevo usuario
+        $data = [
+            'nom_usu' => $_POST['nom_usu'],
+            'ape_usu' => $_POST['ape_usu'],
+            'tdo_usu' => $_POST['tdo_usu'],
+            'ndo_usu' => $_POST['ndo_usu'],
+            'tel_usu' => $_POST['tel_usu'],
+            'usu_usu' => $_POST['usu_usu'],
+            'pass_usu' => $_POST['pass_usu'],
+            'rol_usu' => $_POST['rol_usu'],
+            'fot_usu' => $fotoNombre
+        ];
+
+        // Llamar al modelo para crear el usuario
+        $this->supervisor->create($data);
+
+        // Redirigir al usuario a la página de inicio o a una página de éxito
+        header('Location: index.php?action=index'); // Cambiar la ruta si es necesario
+        exit; // Detener la ejecución para evitar que siga ejecutando el resto del código
     }
+
+    // Mostrar el formulario de registro
+    require_once 'views/usuarios/create.php';
+    }
+
 
 
 
     // Crear un nuevo supervisor
     public function registrar() {
+        
        
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $fotoNombre = null;
-        
-            if (isset($_FILES['fot_usu']) && $_FILES['fot_usu']['error'] == 0) {
-                $fotoNombre = time() . '_' . $_FILES['fot_usu']['name']; // nombre único
-                move_uploaded_file($_FILES['fot_usu']['tmp_name'], 'uploads/' . $fotoNombre);
-            }
-        
-            $data = [
-                'nom_usu' => $_POST['nom_usu'],
-                'ape_usu' => $_POST['ape_usu'],
-                'tdo_usu' => $_POST['tdo_usu'],
-                'ndo_usu' => $_POST['ndo_usu'],
-                'tel_usu' => $_POST['tel_usu'],
-                'usu_usu' => $_POST['usu_usu'],
-                'pass_usu' => $_POST['pass_usu'],
-                'rol_usu' => $_POST['rol_usu'],
-                'fot_usu' => $fotoNombre
-            ];
-        
-            $this->supervisor->create($data); // Llamar al modelo para crear el usuario
+       if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // Get the username from the form
+        $usu_usu = $_POST['usu_usu'];
+        $ndo_usu = $_POST['ndo_usu'];
 
+        // Check if the username already exists in the database
+        $existingUser = $this->supervisor->existeUsuario($usu_usu, $ndo_usu);
+        
+        if ($existingUser) {
+            // If the user exists, show an error message and prevent registration
             session_start();
-            $_SESSION['mensaje'] = '¡Registro exitoso!';
-            header('Location: index.php?action=home');
+            $_SESSION['mensaje'] = 'El nombre de usuario ya está registrado, por favor elija otro.';
+            header('Location: index.php?action=home'); // Redirect back to the registration page
             exit;
-
-            header('Location: index.php?action=home');
-        
         }
 
-        require_once 'views/Registro/registrar.php'; // Mostrar formulario para crear
+        // If no existing user, proceed with file upload
+        $fotoNombre = null;
+        if (isset($_FILES['fot_usu']) && $_FILES['fot_usu']['error'] == 0) {
+            $fotoNombre = time() . '_' . $_FILES['fot_usu']['name']; // nombre único
+            move_uploaded_file($_FILES['fot_usu']['tmp_name'], 'uploads/' . $fotoNombre);
+        }
+
+        // Prepare the data for the new user
+        $data = [
+            'nom_usu' => $_POST['nom_usu'],
+            'ape_usu' => $_POST['ape_usu'],
+            'tdo_usu' => $_POST['tdo_usu'],
+            'ndo_usu' => $_POST['ndo_usu'],
+            'tel_usu' => $_POST['tel_usu'],
+            'usu_usu' => $_POST['usu_usu'],
+            'pass_usu' => $_POST['pass_usu'],
+            'rol_usu' => $_POST['rol_usu'],
+            'fot_usu' => $fotoNombre
+        ];
+
+        // Call the model to create the user
+        $this->supervisor->create($data);
+
+        // Set session message for successful registration
+        session_start();
+        $_SESSION['mensaje'] = '¡Registro exitoso!';
+        header('Location: index.php?action=home'); // Redirect to home page
+        exit;
     }
+
+    // Display the registration form
+    require_once 'views/Registro/registrar.php';
+}
 
 
     

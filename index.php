@@ -28,6 +28,11 @@ switch ($action) {
     case 'home':
         require 'views/home.php'; // Página de bienvenida
         break;
+    case 'cerrarSesion':
+        session_start();
+        session_destroy();
+        require 'views/cerrar_sesion.php'; // Página de bienvenida
+        break;
     case 'nosotros':
         require 'views/nosotros.php'; // Página de bienvenida
         break;
@@ -45,7 +50,7 @@ switch ($action) {
     case 'logout':
         session_start();
         session_destroy();
-        header('Location: index.php?action=home');
+        header('Location: index.php?action=cerrarSesion');
         exit;
         break;
     case 'unauthorized':
@@ -241,7 +246,12 @@ switch ($action) {
     case 'conOrd':
         $resultadoController->conOrd();
         break;
-   
+    case 'conByData':
+        $resultadoController->conByData();
+        break;
+    case 'conByData2':
+        $resultadoController->conByData2();
+        break;
  
  
 
