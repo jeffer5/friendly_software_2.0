@@ -11,9 +11,6 @@ function toggleSubmenu(id, element) {
     }
   }
 
-
-
-
           
     let imagenes = [
       'img/estandar.jpg',

@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap');
+
+.edi{
+    background-image: url('../img/findito.png');
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    color: #eef2f5;
+}
+
+
+
+/* Estilos generales main */
+
+
+.form{
+
+  padding: 2%;
+  width: 60%;
+  Font-family:"Cal Sans", sans-serif;
+  margin-left: 20%;
+  border-radius: 20px;
+  box-shadow: 2px -2px 7px 2px #0CFFF4, -2px 2px 7px 2px #FF1493 ;
+  background: linear-gradient(to bottom, rgb(31, 31, 101), #FF1493);
+}
+
+
+
+
+.btn.btn-primary{
+  margin-left: 45%;
+  margin-right: 10%;
+}
+
+h1{
+  text-align: center;
+  padding: 2%;
+  color: #FF1493;
+}
+
+ .btn.btn-danger.volver{
+
+      margin-left: 80%;
+      margin-bottom: 2%;
+      
+  }
+
+

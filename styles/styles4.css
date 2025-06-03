@@ -1,4 +1,4 @@
-/* Estilos generales main */
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap');
 
 
 #bodicito{
@@ -8,7 +8,8 @@
 
 .container.mt-5.mit{
 
-    color: antiquewhite;
+    color: #FF1493;
+    Font-family:"Cal Sans", sans-serif;
 }
 
 main {
@@ -114,7 +115,7 @@ main {
 
 
 
-  .btn.btn-primary.volver{
+  .btn.btn-danger.volver{
 
     margin-left: 50%;
     margin-bottom: 2%;

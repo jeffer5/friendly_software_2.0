@@ -80,6 +80,7 @@ class Orden{ //creamos clase orden para su uso en Orden controller
             ]);
         }
 
+        
 
     public function delete($id) {
         $query = $this->db->prepare("DELETE FROM orden WHERE id_ord = ?");

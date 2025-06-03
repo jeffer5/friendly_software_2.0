@@ -48,7 +48,7 @@
     </form>
 </div>
 
-<a href="index.php?action=operario_dashboard" class="btn btn-primary volver ">salir</a>
+<a href="index.php?action=operario_dashboard" class="btn btn-danger volver ">salir</a>
 
 <table class="table table-striped table-dark">
     <thead >
@@ -63,7 +63,7 @@
         <th scope="col">Proceso</th>
         <th scope="col">Detalle</th>
         <th scope="col">Subir eficiencia</th>
-        <th scope="col">checked</th>
+        
     </tr>
     </thead>
     <tbody>
@@ -81,7 +81,7 @@
                     <td><?php echo $indicadores['pro_ord']; ?></td>
                      <td><a href="index.php?action=show&id=<?php echo $indicadores['id_ind']; ?>">Ver</a></td>
                      <td><a href="index.php?action=addefi&id=<?php echo $indicadores['id_ind']; ?>" class="btn btn-primary buton" >Subir eficiencia</a></td>
-                     <td><input type="radio" id="checkbox"></td>
+                     
                 </tr>
             <?php else: ?>
                 <!-- Si no se ha encontrado un usuario específico, mostramos todos -->
@@ -97,7 +97,7 @@
                         <td><?php echo $indicador['pro_ord']; ?></td>
                          <td><a href="index.php?action=showindi&id=<?php echo $indicador['id_ind']; ?>" >Ver</a></td>
                          <td><a href="index.php?action=addefi&id=<?php echo $indicador['id_ind']; ?>"class="btn btn-primary buton" >Subir eficiencia</a></td>
-                         <td><input type="radio" id="checkbox"></td>
+                         
               
                     </tr>
                 <?php endforeach; ?>

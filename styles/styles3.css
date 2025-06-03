@@ -1,8 +1,9 @@
-/* Estilos generales main */
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap');
 
 .container.mt-5.mit{
 
- color:antiquewhite
+ color: #FF1493;
+ Font-family:"Cal Sans", sans-serif;
 
 }
 
@@ -36,7 +37,7 @@ main {
   .how-it-works {
     width: 65%;
     height: 500px;
-    margin-left: 20%;
+    margin-left: 18%;
     text-align: center;
     margin-bottom: 2%;
     margin-top: 5%;

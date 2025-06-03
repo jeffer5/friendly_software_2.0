@@ -19,7 +19,7 @@
 
 
 
-  .btn.btn-primary.volver{
+  .btn.btn-danger.volver{
 
       margin-left: 90%;
       margin-bottom: 2%;
@@ -45,7 +45,7 @@
  
   .container.mt-5.mit{
     margin-left: 40%;
-    color: antiquewhite;
+    color: #FF1493;
     margin-bottom: 5%;
 }
 

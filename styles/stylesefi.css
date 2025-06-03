@@ -188,7 +188,7 @@ circle:nth-child(2){
 
 #tittle{
    background-color: #FF1493 !important;
-    color: white !important;
+    color: #FF1493 !important;
     Font-family:"Cal Sans", sans-serif;
     font-size: 20px;
 }

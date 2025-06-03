@@ -111,6 +111,7 @@ class OperarioController{
     }
 
 
+
     public function showindi($id){
 
         $indicador = $this->operario->showindi($id);
@@ -118,6 +119,7 @@ class OperarioController{
 
         require_once 'views/Operario/show.php'; // Pasar datos a la vista
     }
+
 
 
     public function buscarindi() {
@@ -140,6 +142,8 @@ class OperarioController{
         require_once 'views/Operario/verindicador.php';
     }
 }
+
+
 
 
 }

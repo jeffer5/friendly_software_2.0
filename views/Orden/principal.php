@@ -56,6 +56,6 @@ $user = $_SESSION['user'];
     </main>
 
 
-    <a href="index.php?action=supervisor_dashboard" class="btn btn-primary volver">salir</a>
+    <a href="index.php?action=supervisor_dashboard" class="btn btn-danger volver">salir</a>
 </body>
 </html>

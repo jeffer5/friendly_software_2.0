@@ -22,7 +22,7 @@
     </form>
 </div>
 
-<a href="index.php?action=supervisor_dashboard" class="btn btn-primary volver ">salir</a>
+<a href="index.php?action=supervisor_dashboard" class="btn btn-danger volver ">salir</a>
 
 <table class="table table-striped table-dark">
     <thead >
