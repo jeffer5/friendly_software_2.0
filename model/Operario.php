@@ -96,7 +96,7 @@ class Operario{
 
     public function getindi(){
 
-       $query = $this->db->prepare("SELECT i.id_ind, i.can_rea, i.tie_gas, i.fec_ind, u.usu_usu, o.nro_ord, o.nom_pro, o.pro_ord
+       $query = $this->db->prepare("SELECT i.id_ind, i.can_rea, i.tie_gas, i.fec_ind, u.usu_usu, o.nro_ord, o.nom_pro, o.pro_ord, o.can_tot
                                                 FROM indicador i
                                                 JOIN detalle_orden d ON i.id_det_fk = d.id_det
                                                 JOIN usuario u ON d.id_usu_fk = u.id_usu
@@ -157,9 +157,21 @@ class Operario{
     }
 
 
+    public function verifyCan($nro_ord, $pro_ord){
+
+       $query = $this->db->prepare("SELECT  i.can_rea, o.nro_ord, o.pro_ord, o.can_tot
+                                                FROM indicador i
+                                                JOIN detalle_orden d ON i.id_det_fk = d.id_det
+                                                JOIN orden o ON d.id_ord_fk = o.id_ord
+                                                WHERE nro_ord = ? AND  pro_ord = ? ");
+
+       $query->execute([$nro_ord, $pro_ord]);
+       return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function showindi($id){
         // Preparamos la consulta para obtener un usuario por su ID
-    $query = $this->db->prepare("SELECT i.id_ind, i.can_rea, i.tie_gas, i.fec_ind, u.usu_usu, o.nro_ord, o.nom_pro, pro_ord
+    $query = $this->db->prepare("SELECT i.id_ind, i.can_rea, i.tie_gas, i.fec_ind, u.usu_usu, o.nro_ord, o.nom_pro, pro_ord, o.can_tot
                                                 FROM indicador i
                                                 JOIN detalle_orden d ON i.id_pro_fk = d.id_det
                                                 JOIN usuario u ON d.id_usu_fk = u.id_usu

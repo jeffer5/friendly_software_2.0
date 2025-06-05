@@ -80,29 +80,58 @@ class OperarioController{
     }
 
 
-     public function insertindi(){
+     public function insertindi() {
+        session_start();
+    $nro_ord = $_POST['nro_ord'];
+    $pro_ord = $_POST['pro_ord'];
+    $can_tot = $_POST['can_tot'];
+    $can_rea = $_POST['can_rea']; // This is the quantity the user is currently trying to register
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+    // Get previously recorded quantities for this order and process
+    $verify = $this->operario->verifyCan($nro_ord, $pro_ord);
+    $suma = 0;
 
+    foreach ($verify as $item) {
+        $suma += $item['can_rea'];
+    }
+
+
+    // Calculate what the total would be if the current submission is added
+    $total = $suma + $can_rea;
+
+    // Check if the total (existing + new) would exceed the allowed total
+    if ($total <= $can_tot) {
+        // Condition met: it's safe to insert
+
+        // Ensure it's a POST request for security and proper handling
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = [
-                'can_rea' => $_POST['can_rea'],
+                'can_rea' => $can_rea, // Use the current submission's quantity
                 'tie_gas' => $_POST['tie_gas'],
                 'fec_ind' => $_POST['fec_ind'],
                 'id_det_fk' => $_POST['id_det_fk'],
                 'id_pro_fk' => $_POST['id_pro_fk'],
-            
             ];
-            $this->operario->insertindi($data); // Llamar al modelo para crear el usuario
-           
-            header('Location: index.php?action=getindi'); //pagina a donde envia el boton del formulario*/
 
+            // Perform the insertion
+            $this->operario->insertindi($data);
+
+            // Redirect after successful insertion
+            header('Location: index.php?action=getindi');
+            exit; // Crucial: terminate script after redirect
         }
-
-        
-        require_once 'views/Operario/registro.php'; // Mostrar formulario para crear
+    } else {
+        // Condition not met: the new quantity would exceed the total allowed
+        //echo "<script>alert('ERROR: La cantidad a registrar (".$can_rea.") junto con las cantidades ya registradas (".$suma.") exceden la cantidad total permitida (".$can_tot.").'); window.history.back();</script>";
+        $_SESSION['error'] = 'ERROR: La cantidad a registrar ('.$can_rea.') junto con las cantidades ya registradas ('.$suma.') exceden la cantidad total permitida ('.$can_tot.'), no se pudo registrar el indicador';
+        header('Location: index.php?action=getindi');
+        exit;
     }
 
+    require_once 'views/Operario/registro.php';
+    }
     
+
     public function getindi(){
 
         $indicadores = $this->operario->getindi();

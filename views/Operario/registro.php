@@ -79,7 +79,7 @@
                 <div class="form-group row">
                     <label for="staticEmail" class="col-sm-3 col-form-label">Numero orden:</label>
                     <div class="col-sm-6">
-                    <input type="number" class="form-control" id="nro_ord" name="ndo_usu" disabled>
+                    <input type="number" class="form-control" id="nro_ord" name="nro_ord">
                     </div>
                 </div>
                 <br>
@@ -100,13 +100,13 @@
                 <div class="form-group row">
                     <label for="staticEmail" class="col-sm-3 col-form-label">Cantidad total</label>
                     <div class="col-sm-6">
-                    <input type="number" class="form-control" id="can_tot" name="can_tot" disabled>
+                    <input type="number" class="form-control" id="can_tot" name="can_tot">
                     </div>
                 </div>
                  <div class="form-group row">
                     <label for="staticEmail" class="col-sm-3 col-form-label">Proceso</label>
                     <div class="col-sm-6">
-                    <input type="text" class="form-control" id="pro_ord" name="pro_ord" C:\xampp\mysql\bindisabled>
+                    <input type="text" class="form-control" id="pro_ord" name="pro_ord">
                     </div>
                 </div>
                 

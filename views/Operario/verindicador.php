@@ -34,6 +34,23 @@
     endif;
     ?>
 
+
+    <?php
+   
+    if (isset($_SESSION['error'])):
+    ?>
+        <div id="alerta-regis" class="alert alert-danger alert-dismissible fade show mt-3 mx-3" role="alert">
+            <?= $_SESSION['error'] ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php
+        unset($_SESSION['error']);
+    endif;
+    ?>
+
+
+   
+
     
 <div class="container mt-5 mit">
 <h2>Indicadores</h2>
@@ -56,6 +73,7 @@
         <th scope="col">ID</th>
         <th scope="col">Cantidad realizada</th>
         <th scope="col">Tiempo gastado</th>
+        <th scope="col">Cantidad total</th>
         <th scope="col">Fecha</th>
         <th scope="col">Uusario</th>
         <th scope="col">Orden</th>
@@ -74,6 +92,7 @@
                     <td><?php echo $indicadores['id_ind']; ?></td>
                     <td><?php echo $indicadores['can_rea']; ?></td>
                     <td><?php echo $indicadores['tie_gas']; ?></td>
+                    <td><?php echo $indicadores['can_tot']; ?></td>
                     <td><?php echo $indicadores['fec_ind']; ?></td>
                     <td><?php echo $indicadores['usu_usu']; ?></td>
                     <td><?php echo $indicadores['nro_ord']; ?></td>
@@ -90,6 +109,7 @@
                         <td><?php echo $indicador['id_ind']; ?></td>
                         <td><?php echo $indicador['can_rea']; ?></td>
                         <td><?php echo $indicador['tie_gas']; ?></td>
+                        <td><?php echo $indicador['can_tot']; ?></td>
                         <td><?php echo $indicador['fec_ind']; ?></td>
                         <td><?php echo $indicador['usu_usu']; ?></td>
                         <td><?php echo $indicador['nro_ord']; ?></td>
