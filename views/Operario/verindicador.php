@@ -80,6 +80,7 @@
         <th scope="col">Producto</th>
         <th scope="col">Proceso</th>
         <th scope="col">Detalle</th>
+        <th scope="col">Corregir</th>
         <th scope="col">Subir eficiencia</th>
         
     </tr>
@@ -99,7 +100,14 @@
                     <td><?php echo $indicadores['nom_pro']; ?></td>
                     <td><?php echo $indicadores['pro_ord']; ?></td>
                      <td><a href="index.php?action=show&id=<?php echo $indicadores['id_ind']; ?>">Ver</a></td>
-                     <td><a href="index.php?action=addefi&id=<?php echo $indicadores['id_ind']; ?>" class="btn btn-primary buton" >Subir eficiencia</a></td>
+                     <td><a href="index.php?action=corregir&id=<?php echo $indicadores['id_ind']; ?>">Corregir</a></td>
+                      <td>
+                        <a href="index.php?action=addefi&id=<?php echo $indicadores['id_ind']; ?>"
+                           class="btn btn-primary indicador-button"
+                           id="indicador-<?php echo $indicadores['id_ind']; ?>">
+                           Subir eficiencia
+                        </a>
+                    </td>
                      
                 </tr>
             <?php else: ?>
@@ -116,7 +124,14 @@
                         <td><?php echo $indicador['nom_pro']; ?></td>
                         <td><?php echo $indicador['pro_ord']; ?></td>
                          <td><a href="index.php?action=showindi&id=<?php echo $indicador['id_ind']; ?>" >Ver</a></td>
-                         <td><a href="index.php?action=addefi&id=<?php echo $indicador['id_ind']; ?>"class="btn btn-primary buton" >Subir eficiencia</a></td>
+                         <td><a href="index.php?action=corregir&id=<?php echo $indicador['id_ind']; ?>">Corregir</a></td>
+                         <td>
+                            <a href="index.php?action=addefi&id=<?php echo $indicador['id_ind']; ?>"
+                               class="btn btn-primary indicador-button"
+                               id="indicador-<?php echo $indicador['id_ind']; ?>">
+                                Subir eficiencia
+                            </a>
+                        </td>
                          
               
                     </tr>
@@ -127,6 +142,56 @@
         <?php endif; ?>
     </tbody>
 </table>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // --- Obtener el ID del indicador que se acaba de registrar desde PHP ---
+        // PHP imprime el ID del indicador si existe en la sesión
+        // Si no existe (es decir, no hubo registro exitoso), será una cadena vacía.
+        const idIndicadorRegistrado = "<?php
+            if (isset($_SESSION['id_indicador_cambiar_color'])) {
+                $id_from_session = $_SESSION['id_indicador_cambiar_color'];
+                unset($_SESSION['id_indicador_cambiar_color']); // Limpia la sesión después de usarla
+                echo "indicador-" . $id_from_session; // Formatea el ID para que coincida con el id HTML
+            } else {
+                echo ""; // Si no hay ID, se deja vacío
+            }
+        ?>";
+
+        // --- Función para activar un botón permanentemente ---
+        function activateButtonPermanently(buttonId) {
+            const buttonToActivate = document.getElementById(buttonId);
+            if (buttonToActivate && !buttonToActivate.classList.contains('active-button')) {
+                buttonToActivate.classList.add('active-button');
+                // buttonToActivate.disabled = true; // Opcional: Deshabilita el botón
+            }
+        }
+
+        // --- Al cargar la página, si hay un ID de indicador recién registrado, activarlo ---
+        if (idIndicadorRegistrado) {
+            activateButtonPermanently(idIndicadorRegistrado);
+        }
+
+        // --- (Opcional) Guardar y restaurar la persistencia de estado para TODOS los botones ---
+        // Si quieres que el botón PERMANEZCA activo incluso después de cerrar y abrir el navegador,
+        // necesitarías almacenar los IDs en localStorage O (preferiblemente) consultarlos de la base de datos.
+        // Pero para "sólo si se registró exitosamente AHORA", lo de arriba es suficiente.
+
+        // Si tu intención es que el color cambie *solo cuando se haga clic* Y *se confirme en el backend*,
+        // y que la página se recargue, el código de arriba es el más sencillo.
+        // El `localStorage` que teníamos antes para "todos los botones activos" no es necesario si solo
+        // cambias el color del botón que acaba de ser registrado.
+
+        // Si necesitas que los botones que se activaron en visitas anteriores *también* se muestren activos,
+        // entonces necesitas la lógica del backend para indicar qué IDs ya tienen eficiencia registrada
+        // (como lo hablamos en la respuesta anterior, el `LEFT JOIN`).
+
+    }); // Fin de DOMContentLoaded
+</script>
+
+
 
 
 <script>

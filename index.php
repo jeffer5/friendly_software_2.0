@@ -227,6 +227,22 @@ switch ($action) {
     case 'addefi':
         $operarioController->addefi($id); // Formulario para actualizar
         break;
+    case 'corregir':
+        if ($id !== null) {
+            $operarioController->corregir($id); // cargar datos a actualizar
+        } else {
+            echo "ID no proporcionado.";
+        }
+        break;
+   case 'updateindi':
+        if ($id !== null) {
+            $ordenController->updateindi($id); // cargar datos a actualizar
+        } else {
+            echo "ID no proporcionado.";
+        }   
+        break; 
+
+        
     //acciones resultado
     case 'principal':
         require 'views/Resultados/principal.php';

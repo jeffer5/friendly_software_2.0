@@ -49,11 +49,24 @@
     margin-bottom: 5%;
 }
 
-.btn.btn-primary.buton.pressed{
 
-  background-color: green !important;
+.btn.btn-primary.indicador-button{
+    border-radius: 5px;
+    transition: all 0.3s ease; 
+    text-decoration: none;
 }
 
-.pressed{
-  background-color: green !important;
+.btn.btn-primary.indicador-button:hover {
+    background-color: green; /* Darker blue on hover */
+    transform: translateY(-1px);
+    
+}
+
+.btn.btn-primary.indicador-button.active-button {
+
+    background-color: green; /* Green background */
+    text-decoration: none; /* Add the underline */
+    font-weight: bold; /* Make text bold */
+    box-shadow: 0 0 10px rgba(40, 167, 69, 0.5); /* A subtle glow */
+    
 }
