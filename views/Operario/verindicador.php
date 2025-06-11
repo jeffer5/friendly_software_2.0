@@ -9,6 +9,21 @@
 </head>
 <body class="mybody">
 
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand mi-fri" href="#">Friendly software</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link" href="index.php?action=getorden">Insertar nuevo indicador</a></li>
+              <li class="nav-item"><a class="nav-link" href="index.php?action=operario_dashboard">Salir</a></li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+
     <?php
     session_start();
     if (isset($_SESSION['mensaje'])):
@@ -56,7 +71,6 @@
 <h2>Indicadores</h2>
 </div>
 
-<a href="index.php?action=getorden" class="btn btn-primary crear">Insertar nuevo indicador</a><br><br>
 
 <div class="container yo">
     <form action="index.php?action=buscarindi" method="POST">
@@ -65,7 +79,7 @@
     </form>
 </div>
 
-<a href="index.php?action=operario_dashboard" class="btn btn-danger volver ">salir</a>
+
 
 <table class="table table-striped table-dark">
     <thead >
@@ -80,7 +94,6 @@
         <th scope="col">Producto</th>
         <th scope="col">Proceso</th>
         <th scope="col">Detalle</th>
-        <th scope="col">Corregir</th>
         <th scope="col">Subir eficiencia</th>
         
     </tr>
@@ -100,7 +113,6 @@
                     <td><?php echo $indicadores['nom_pro']; ?></td>
                     <td><?php echo $indicadores['pro_ord']; ?></td>
                      <td><a href="index.php?action=show&id=<?php echo $indicadores['id_ind']; ?>">Ver</a></td>
-                     <td><a href="index.php?action=corregir&id=<?php echo $indicadores['id_ind']; ?>">Corregir</a></td>
                       <td>
                         <a href="index.php?action=addefi&id=<?php echo $indicadores['id_ind']; ?>"
                            class="btn btn-primary indicador-button"
@@ -124,7 +136,6 @@
                         <td><?php echo $indicador['nom_pro']; ?></td>
                         <td><?php echo $indicador['pro_ord']; ?></td>
                          <td><a href="index.php?action=showindi&id=<?php echo $indicador['id_ind']; ?>" >Ver</a></td>
-                         <td><a href="index.php?action=corregir&id=<?php echo $indicador['id_ind']; ?>">Corregir</a></td>
                          <td>
                             <a href="index.php?action=addefi&id=<?php echo $indicador['id_ind']; ?>"
                                class="btn btn-primary indicador-button"

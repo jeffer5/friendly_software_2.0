@@ -13,49 +13,50 @@ $user = $_SESSION['user'];
 </head>
 
 <body id="bodicito">
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand mi-fri" href="#">Friendly software</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link" href="index.php?action=logout">Cerrar sesion</a></li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+
     <div class="container mt-5 mit">
     <h1>Bienvenido, <?= htmlspecialchars($user['usu_usu']) ?></h1>
-    <a href="index.php?action=logout" class="btn btn-danger mt-3 cerrar">Cerrar Sesión</a>
     </div>
 
 
-<main>
+
+     <main>
     
  <!-- Sección Cómo Funciona -->
         <section class="how-it-works">
             
-                <img class="image" src="img/asignado.jpg" alt="">
-               
-                <div class="steps"> <!-- Contenedor de pasos -->
-                    <h2>Ordenes asignadas</h2>
-                    <p>
-                        ¡Consulta todas las ordenes asignadas a tu usuario, verifica datos vitales como:
-                        proceso a realizar, fecha de entrega u otros.
-                    </p>
-
-                    <a href="index.php?action=getByidOpe" class="btn btn-primary">Ver ordenes asignadas</a>  
-                    
-                </div>
-        </section>
-      
-        <!-- Sección de Beneficios -->
-        <section class="benefits">
-        
-         <img class="image" src="img/what.png" alt="">
-       
             <div class="steps"> <!-- Contenedor de pasos -->
-                <h2>Registrar eficiencia</h2>
-                <p>
-                    Agrega facilmente tus tiempos, has del registro de actividades
-                    algo mucho mas sencillo y dinamico que antes.
-                </p>
+                    
+                    <a href="index.php?action=getByidOpe"><img  class="image" src="img/asignado.png" alt=""></a>
 
-                <a href="index.php?action=getindi" class="btn btn-primary">Registrar</a>
-                
+                    <h2>Ordenes asignadas</h2>
             </div>
+            <div class="steps1"> <!-- Contenedor de pasos -->
+                        
+                        <a href="index.php?action=getindi"><img class="image" src="img/what.png" alt=""></a>  
+                        <h2>Registrar eficiencia</h2>
+            </div>  
+
         </section>
-      
     </main>
+
+
 
 </body>
 </html>

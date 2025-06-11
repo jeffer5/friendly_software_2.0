@@ -2,7 +2,11 @@
 
 
 #bodicito{
-    background-color: black;
+    background-image: url('../img/findito.png');
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    Font-family:"Cal Sans", sans-serif;
 }
 
 
@@ -144,3 +148,6 @@ main {
    scale: 1.1;
   }
   
+  .asi{
+    width: 55%;
+  }

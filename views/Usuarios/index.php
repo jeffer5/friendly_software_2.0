@@ -7,7 +7,23 @@
     <link rel="stylesheet" href="styles/styles5.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body class="mybody">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand mi-fri" href="#">Friendly software</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link" href="index.php?action=create">Crear nuevo usuario</a></li>
+              <li class="nav-item"><a class="nav-link" href="index.php?action=supervisor_dashboard">Salir</a></li>
+            </ul>
+          </div>
+        </div>
+    </nav>
     
      <?php
     session_start();
@@ -27,7 +43,7 @@
 <h2>Lista de Usuarios</h2>
 </div>
 
-<a href="index.php?action=create" class="btn btn-primary crear">Crear nuevo usuario</a><br><br>
+
 
 <div class="container yo">
     <form action="index.php?action=buscar" method="POST">
@@ -36,7 +52,6 @@
     </form>
 </div>
 
-<a href="index.php?action=supervisor_dashboard" class="btn btn-danger volver ">salir</a>
 
 <table class="table table-striped table-dark">
     <thead >

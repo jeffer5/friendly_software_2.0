@@ -26,8 +26,10 @@
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       background: linear-gradient(to bottom, rgb(31, 31, 101), #FF1493);
+      margin-top: -1%;
     }
 
+    
     .form-container input {
       width: 100%;
       padding: 10px;
@@ -55,6 +57,7 @@
         font-size: 50px;
         Font-family:"Cal Sans", sans-serif;
         color: aquamarine;
+        margin-bottom: 2%;
     }
 
 

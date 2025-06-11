@@ -42,7 +42,7 @@ main {
     margin-bottom: 2%;
     margin-top: 5%;
     float: left;
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(25, 25, 25, 0.15);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 16px;

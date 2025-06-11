@@ -36,6 +36,9 @@ switch ($action) {
     case 'nosotros':
         require 'views/nosotros.php'; // Página de bienvenida
         break;
+    case 'creadores':
+        require 'views/creadores.php'; // Página de bienvenida
+        break;
     case 'orden':
          session_start();
         if (!isset($_SESSION['user'])) {

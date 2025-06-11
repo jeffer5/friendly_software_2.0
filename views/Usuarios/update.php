@@ -9,9 +9,24 @@
 </head>
 <body class="edi">
 
-        <h1>Actualizar Estandar</h1>
 
-        <a href="index.php?action=index" class="btn btn-danger volver ">Salir</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand mi-fri" href="#">Friendly software</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link" href="index.php?action=index">Salir</a></li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+        <h1 id="title">Actualizar Estandar</h1>
+
+        
 
         <form  action="index.php?action=update&id=<?= $usuario['id_usu'] ?>" method="POST" enctype="multipart/form-data"> <!--enctype="multipart/form-data" permite que los datos del formulario se dividan en múltiples partes, y cada parte puede contener un tipo de dato diferente (texto o archivo).-->
             <div class="form">

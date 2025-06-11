@@ -7,13 +7,27 @@
     <link rel="stylesheet" href="styles/styles6.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body class="mybody">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand mi-fri" href="#">Friendly software</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link" href="index.php?action=crear">Crear nueva orden</a></li>
+              <li class="nav-item"><a class="nav-link" href="index.php?action=orden">Salir</a></li>
+            </ul>
+          </div>
+        </div>
+    </nav>
     
 <div class="container mt-5 mit">
 <h2>Lista de Ordenes</h2>
 </div>
-
-<a href="index.php?action=crear" class="btn btn-primary crear">Crear nueva orden</a><br><br>
 
 <div class="container yo">
     <form action="index.php?action=search" method="POST">
@@ -22,7 +36,7 @@
     </form>
 </div>
 
-<a href="index.php?action=orden" class="btn btn-primary volver ">volver</a>
+
 
 <table class="table table-striped table-dark">
     <thead >

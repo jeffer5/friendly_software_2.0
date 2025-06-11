@@ -208,48 +208,7 @@ class OperarioController{
 }
 
 
-    /*public function corregir($id) {
 
-        
-        $indicador = $this->operario->showindi($id);
-
-        $usu_usu = $indicador['usu_usu'];
-
-        echo "<pre>";
-        echo $usu_usu;
-        echo "</pre>";
-        die(); 
-
-        $promedios = $this->operario->getprom();
-        $orden = $this->operario->getByid($usu_usu);
-        include 'views/Operario/update.php'; // Muestra el formulario
-        
-    }
-
-
-     public function updateindi() {
-      
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-           
-            $data = [
-
-                'can_rea' => $_POST['can_rea2'],
-                'tie_gas' => $_POST['tie_gas2'],
-                'fec_ind' => $_POST['fec_ind2'],
-                'id_det_fk' => $_POST['id_det_fk2'],
-                'id_pro_fk' => $_POST['id_pro_fk2'],
-            ];
-
-            $id = $_POST['id_ind'];
-        
-            $this->operario->update($id ,$data); // Llamar al modelo para crear el usuario
-            header('Location: index.php?action=getindi'); //pagina a donde envia el boton del formulario
-        
-        }
-
-        require_once 'views/Operario/update.php'; // Mostrar formulario para crear
-    }*/
-    
 
 
 

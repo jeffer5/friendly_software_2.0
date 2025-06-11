@@ -5,6 +5,7 @@
   background-size: cover;
   background-position: center; 
   background-repeat: no-repeat;
+  Font-family:"Cal Sans", sans-serif;
     
 }
 
@@ -31,6 +32,7 @@
     float: left;
     margin-left: 4%;
     color: antiquewhite;
+    margin-bottom: 5%;
   }
 
   .container.yo input.id{

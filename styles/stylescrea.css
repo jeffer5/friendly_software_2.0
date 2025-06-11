@@ -1,0 +1,185 @@
+body{
+
+    background-image: url(../img/findito.png);
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    Font-family:"Cal Sans", sans-serif;
+
+
+}
+
+.section1{
+    margin-top: 2%;
+    width: 100%;
+    padding: 20px;
+    Font-family:"Cal Sans", sans-serif;
+}
+
+.divcito{
+    
+    margin-left: 10%;
+    margin-top: 15%;
+    width: 40%;
+    height: auto;
+    padding: 10px;
+    float: left;
+}
+
+.divcito h1{
+    color: aliceblue;
+    font-size: 60px;
+    margin-bottom: 5%;
+}
+
+.divcito p{
+    margin-bottom: 8%;
+    color: aliceblue;
+    Font-family:"Cal Sans", sans-serif;
+
+}
+
+
+.section1 img{
+
+    margin-left: 5%;
+    width: 500px;
+    height: 700px;
+    box-shadow: 2px -2px 7px 2px #0CFFF4, -2px 2px 7px 2px #FF1493 ;
+
+}
+
+.btn.btn-primary{
+    
+    width: 25%;
+    height: 50px;
+    border-radius: 20px;
+    box-shadow: 2px -2px 7px 2px #0CFFF4, -2px 2px 7px 2px #0CFFF4 ;
+    
+}
+
+.gonzo{
+    
+    width: 33%;
+    float: left;
+    color: #0CFFF4;
+}
+
+
+
+
+
+
+.section2{
+    margin-top: 2%;
+    width: 100%;
+    padding: 20px;
+    Font-family:"Cal Sans", sans-serif;
+}
+
+.divcito1{
+    
+    margin-left: 10%;
+    margin-top: 8%;
+    width: 40%;
+    height: auto;
+    padding: 10px;
+    float: left;
+}
+
+.divcito1 h1{
+    color: aliceblue;
+    font-size: 60px;
+    margin-bottom: 5%;
+}
+
+.divcito1 p{
+    margin-bottom: 8%;
+    color: aliceblue;
+    Font-family:"Cal Sans", sans-serif;
+
+}
+
+
+.section2 img{
+
+    margin-left: 5%;
+    width: 500px;
+    height: 700px;
+    box-shadow: 2px -2px 7px 2px #0CFFF4, -2px 2px 7px 2px #FF1493 ;
+
+}
+
+.btn.btn-primary{
+    
+    width: 25%;
+    height: 50px;
+    border-radius: 20px;
+}
+
+.jefer{
+    
+    width: 35%;
+    float: left;
+    color: #0CFFF4;
+}
+
+
+
+
+
+
+
+.section3{
+    margin-top: 2%;
+    width: 100%;
+    padding: 20px;
+    Font-family:"Cal Sans", sans-serif;
+}
+
+.divcito2{
+    
+    margin-left: 10%;
+    margin-top: 8%;
+    width: 40%;
+    height: auto;
+    padding: 10px;
+    float: left;
+}
+
+.divcito2 h1{
+    color: aliceblue;
+    font-size: 60px;
+    margin-bottom: 5%;
+}
+
+.divcito2 p{
+    margin-bottom: 8%;
+    color: aliceblue;
+    Font-family:"Cal Sans", sans-serif;
+
+}
+
+
+.section3 img{
+
+    margin-left: 5%;
+    width: 500px;
+    height: 700px;
+    box-shadow: 2px -2px 7px 2px #0CFFF4, -2px 2px 7px 2px #FF1493 ;
+
+}
+
+.btn.btn-primary{
+    
+    width: 25%;
+    height: 50px;
+    border-radius: 20px;
+}
+
+.jefer{
+    
+    width: 35%;
+    float: left;
+    color: #0CFFF4;
+}
