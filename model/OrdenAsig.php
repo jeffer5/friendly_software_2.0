@@ -22,7 +22,7 @@ class OrdenAsig{
 
 
     public function showOrd(){
-        $query = $this->db->prepare("SELECT id_ord,nro_ord FROM orden ");
+        $query = $this->db->prepare("SELECT id_ord,nro_ord,pro_ord FROM orden ");
         $query->execute();
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -73,6 +73,12 @@ class OrdenAsig{
 }
 
 
+
+    public function delete($id) {
+        $query = $this->db->prepare("DELETE FROM detalle_orden WHERE id_det = ?");
+        $query->execute([$id]);
+        return $query->fetch(PDO::FETCH_ASSOC);
+    }
 
 
 

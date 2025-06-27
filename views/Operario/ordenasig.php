@@ -24,16 +24,8 @@
         </div>
     </nav>
     
-    
-    <?php
-
-        $user = $_SESSION['user'];
-
-    ?>
-
-
     <div class="container mt-5 mit">
-        <h1>Bienvenido, <?= htmlspecialchars($user['usu_usu']) ?></h1>
+        <h1>Ordenes Asignadas</h1>
     </div>
 
 

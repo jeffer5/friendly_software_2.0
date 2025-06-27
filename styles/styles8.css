@@ -58,12 +58,19 @@ body{
       margin-bottom: 10%;
 }
 
-#nro_orden{
 
-    margin-left: 5%;
-}
 
 .btn.btn-primary.asi{
     margin-top: 8%;
    
+}
+
+#nro_orden{
+    margin-left: 5%;
+}
+
+#proceso{
+    background-color: aliceblue;
+    color: black;
+    width: 20%;
 }

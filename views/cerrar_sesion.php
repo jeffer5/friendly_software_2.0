@@ -3,6 +3,12 @@
 session_start();  // Inicia la sesión para acceder a las variables de sesión
 session_unset();  // Elimina todas las variables de sesión
 session_destroy();  // Destruye la sesión completamente
+
+
+header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1
+header("Pragma: no-cache"); // HTTP 1.0
+header("Expires: 0"); // Proxies
+
 ?>
 
 <!DOCTYPE html>
@@ -99,7 +105,8 @@ session_destroy();  // Destruye la sesión completamente
   <script>
     setTimeout(() => {
       window.location.href = "index.php?action=home"; // Redirige al usuario a la página de login o principal
-    }, 4000); // Espera 4 segundos antes de redirigir
+    }, 2000); // Espera 4 segundos antes de redirigir
+    exit();
   </script>
 </body>
 </html>

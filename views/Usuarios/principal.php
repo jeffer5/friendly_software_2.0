@@ -2,6 +2,13 @@
 $user = $_SESSION['user'];
 ?>
 
+<?php
+// En la parte superior de tus páginas protegidas (ej. dashboard.php, perfil.php)
+header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1
+header("Pragma: no-cache"); // HTTP 1.0
+header("Expires: 0"); // Proxies
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>

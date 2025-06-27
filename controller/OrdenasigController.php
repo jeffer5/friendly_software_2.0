@@ -80,5 +80,13 @@ class OrdenasigController{
 
 
 
+     public function eliminarOrdenAsignada($id) {
+        $detalles = $this->ordenasig->delete($id);
+        header('Location: index.php?action=indexAsi'); //pagina a donde envia el boton del formulario
+        require_once 'views/Orden/ordenes.php'; // Pasar datos a la vista
+    }
+
+
+
 
 }

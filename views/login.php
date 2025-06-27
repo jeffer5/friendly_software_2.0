@@ -7,6 +7,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
    
 </head>
+
+
 <body class="bg-light d-flex justify-content-center align-items-center vh-100">
     <div class="card shadow p-4" style="width: 100%; max-width: 400px;">
         <img id="logo" src="img/logo.png" alt="">
@@ -32,7 +34,7 @@
                 <button type="reset" class="btn btn-primary">Borrar</button>
             </div>
             <div class="d-grid mi-grid">
-                <button onclick="history.back()" class="btn btn-info">volver</button>
+                <a class="btn btn-primary" href="index.php?action=home">Salir</a>
             </div>
         </form>
     </div>

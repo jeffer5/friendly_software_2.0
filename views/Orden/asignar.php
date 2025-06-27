@@ -7,6 +7,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Document</title>
 </head>
+
+
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -28,21 +30,42 @@
 <form action="index.php?action=asignarO" method="post" enctype="multipart/form-data" class="form-container"> 
     <p> Asigne rapidamente una orden de trabajo
     Seleccionando al operario y la orden a cumplir</p>
+
     <label for="usuario" id="usuario">Usuario:</label>
-    <select name="usuario" required>
+    <select name="usuario"  required>
         <option value="">Escoja</option>
         <?php foreach($usuarios as $usuario): ?>
             <option value="<?= $usuario['id_usu']; ?>"><?= $usuario['nom_usu']; ?></option>
         <?php endforeach; ?>
     </select>
 
-    <label for="nro_orden" id="nro_orden">Número de Orden:</label>
-    <select name="nro_orden" required>
-        <option value="">Escoja</option>
-        <?php foreach($ordenes as $orden): ?><option value="<?= $orden['id_ord']; ?>"><?= $orden['nro_ord']; ?></option>
+
+    <label for="nro_ord" id="nro_orden">Número de Orden:</label>
+    <select name="nro_orden" id="nro_ord" required>
+        <option  value="">Escoja</option>
+        <?php
+        
+        $ordencitas_data = [];
+        foreach($ordenes as $orden):
+            // Cada iteración añade una entrada a $ordencitas_data
+            $ordencitas_data[$orden['id_ord']] = $orden;
+        ?>
+            <option value="<?= $orden['id_ord']; ?>"><?= $orden['nro_ord']; ?></option>
         <?php endforeach; ?>
     </select>
+    <br>
+    <br>
 
+
+        <label for="staticEmail" class="col-sm-2 col-form-label">Proceso:</label>
+        <input type="text" id="proceso" name="proceso" disabled>
+        
+
+        <script>    
+            // Pasamos los datos PHP a JavaScript
+            const ordencitas = <?= json_encode($ordencitas_data); ?>;
+        </script>
+ 
     <br><input type="submit" class="btn btn-primary asi" value="Asignar">
 
 </form>
@@ -53,6 +76,7 @@
             Buscar por id <input type="number" placeholder="ingrese 0 para volver" name="id" class="id">
     <input type="submit" value="buscar" class="btn btn-primary">
     </form>
+    
 </div>
 
 
@@ -69,6 +93,7 @@
         <th scope="col">Producto</th>
         <th scope="col">Cantidad total</th>
         <th scope="col">Proceso</th>
+        <th scope="col">Eliminar</th>
     </tr>
     </thead>
     <tbody>
@@ -84,7 +109,10 @@
                     <td><?php echo $detalles['fec_ent']; ?></td>
                     <td><?php echo $detalles['nom_pro']; ?></td>
                     <td><?php echo $detalles['can_tot']; ?></td>
-                    <td><?php echo $detalles['pro_ord']; ?></td>      
+                    <td><?php echo $detalles['pro_ord']; ?></td>
+                    <td>
+                        <button class="btn btn-danger" onclick="eliminar(this.value)" value="<?php echo $detalles['id_det']; ?>" >Eliminar</button>
+                    </td>     
                 </tr>
             <?php else: ?>
                 <!-- Si no se ha encontrado un usuario específico, mostramos todos -->
@@ -99,6 +127,9 @@
                         <td><?php echo $destalle['nom_pro']; ?></td>
                         <td><?php echo $destalle['can_tot']; ?></td>
                         <td><?php echo $destalle['pro_ord']; ?></td>
+                    <td>
+                        <button class="btn btn-danger" onclick="eliminar(this.value)" value="<?php echo $destalle['id_det']; ?>" >Eliminar</button>
+                    </td>
 
                     </tr>
                 <?php endforeach; ?>
@@ -117,5 +148,6 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="javascript/function5.js"></script> 
 </body>
 </html>

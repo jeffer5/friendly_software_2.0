@@ -31,6 +31,11 @@ switch ($action) {
     case 'cerrarSesion':
         session_start();
         session_destroy();
+
+        header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
+        header("Pragma: no-cache"); // HTTP 1.0.
+        header("Expires: 0"); // Proxies.
+
         require 'views/cerrar_sesion.php'; // Página de bienvenida
         break;
     case 'nosotros':
@@ -40,11 +45,6 @@ switch ($action) {
         require 'views/creadores.php'; // Página de bienvenida
         break;
     case 'orden':
-         session_start();
-        if (!isset($_SESSION['user'])) {
-            header("Location: index.php?action=login");
-            exit;
-        }
         require 'views/orden/principal.php';
         break;
     case 'login':
@@ -53,7 +53,12 @@ switch ($action) {
     case 'logout':
         session_start();
         session_destroy();
+
+        header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
+        header("Pragma: no-cache"); // HTTP 1.0.
+        header("Expires: 0"); // Proxies.
         header('Location: index.php?action=cerrarSesion');
+        
         exit;
         break;
     case 'unauthorized':
@@ -61,16 +66,26 @@ switch ($action) {
         break;
     case 'supervisor_dashboard':
         session_start();
+
+        header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
+        header("Pragma: no-cache"); // HTTP 1.0.
+        header("Expires: 0"); // Proxies.
+
         if (!isset($_SESSION['user'])) {
-            header("Location: index.php?action=login");
+            header("Location: index.php?action=home");
             exit;
         }
         require 'views/Usuarios/principal.php';
         break;
     case 'operario_dashboard':
         session_start();
+
+        header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
+        header("Pragma: no-cache"); // HTTP 1.0.
+        header("Expires: 0"); // Proxies.
+
         if (!isset($_SESSION['user'])) {
-            header("Location: index.php?action=login");
+            header("Location: index.php?action=home");
             exit;
         }
         require 'views/Operario/principal.php';
@@ -194,21 +209,32 @@ switch ($action) {
     case 'buscaru':
         $ordenasigController->buscaru(); // Formulario para actualizar
         break;
+    case 'eliminarOrdenAsignada':
+        if ($id !== null) {  
+            $ordenasigController->eliminarOrdenAsignada($id); // Eliminar usuario especifico
+        } else {
+            echo "ID no proporcionado.";
+        }
+        break;
+
+
+
+
     //acciones operario
     case 'getByidOpe':
           session_start();
+
+        header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
+        header("Pragma: no-cache"); // HTTP 1.0.
+        header("Expires: 0"); // Proxies.
+
         if (!isset($_SESSION['user'])) {
-            header("Location: index.php?action=login");
+            header("Location: index.php?action=home");
             exit;
         }
         $operarioController->getByidOpe(); 
         break; 
     case 'getorden':
-          session_start();
-        if (!isset($_SESSION['user'])) {
-            header("Location: index.php?action=login");
-            exit;
-        }
         $operarioController->getorden(); 
         break;
     case 'insertindi':
@@ -248,6 +274,16 @@ switch ($action) {
         
     //acciones resultado
     case 'principal':
+         session_start();
+
+        header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
+        header("Pragma: no-cache"); // HTTP 1.0.
+        header("Expires: 0"); // Proxies.
+
+        if (!isset($_SESSION['user'])) {
+            header("Location: index.php?action=home");
+            exit;
+        }
         require 'views/Resultados/principal.php';
         break;
     case 'showAllEfi':
