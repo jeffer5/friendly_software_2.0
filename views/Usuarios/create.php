@@ -63,6 +63,13 @@
                 </div>
                 <br>
                 <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-3 col-form-label">correo electronico</label>
+                    <div class="col-sm-8">
+                    <input type="email" class="form-control" id="staticEma" name="ema_usu" required>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group row">
                     <label for="staticEmail" class="col-sm-3 col-form-label">Telefono</label>
                     <div class="col-sm-8">
                     <input type="text" class="form-control" id="staticEmail" name="tel_usu" required>

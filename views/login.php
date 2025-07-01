@@ -9,7 +9,7 @@
 </head>
 
 
-<body class="bg-light d-flex justify-content-center align-items-center vh-100">
+<body class="bg-light d-flex justify-content-center align-items-center vh-100 ">
     <div class="card shadow p-4" style="width: 100%; max-width: 400px;">
         <img id="logo" src="img/logo.png" alt="">
         <h4 class="mb-4 text-center">Iniciar Sesión</h4>
@@ -33,6 +33,10 @@
             <div class="d-grid">
                 <button type="reset" class="btn btn-primary">Borrar</button>
             </div>
+            <div class="d-grid">
+                <a  href="index.php?action=showForgotPasswordForm"  class="forgot" href="">Forgot password?</a>
+            </div>
+
             <div class="d-grid mi-grid">
                 <a class="btn btn-primary" href="index.php?action=home">Salir</a>
             </div>

@@ -23,4 +23,41 @@ class UsuarioModel {  //creamos una clase supervisor
 }
 
 
+    public function createPasswordResetToken($email, $token) {
+        // Define el tiempo de expiración del token (ej. 1 hora)
+        $expires_at = date('Y-m-d H:i:s', strtotime('+1 hour'));
+
+        $query = $this->db->prepare("INSERT INTO password_resets (email, token, expires_at) VALUES (?, ?, ?)");
+        return $query->execute([$email, $token, $expires_at]);
+    }
+
+
+    public function findToken($token) {
+        $query = $this->db->prepare("SELECT * FROM password_resets WHERE token = ?");
+        $query->execute([$token]);
+        return $query->fetch(PDO::FETCH_ASSOC);
+    }
+
+    
+    
+    public function updatePassword($email, $hashed_password) {
+        $query = $this->db->prepare("UPDATE usuario SET pass_usu = ? WHERE ema_usu = ?");
+        return $query->execute([$hashed_password, $email]);
+    }
+
+
+    public function deleteToken($token) {
+        $query = $this->db->prepare("DELETE FROM password_resets WHERE token = ?");
+        return $query->execute([$token]);
+    }
+
+
+    public function findUserByEmail($email){
+        $query = $this->db->prepare("SELECT * FROM usuario WHERE ema_usu = ?");  
+        $query->execute([$email]);
+        return $query->fetch(PDO::FETCH_ASSOC);
+
+    }
+
+
 }

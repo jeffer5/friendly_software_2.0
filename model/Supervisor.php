@@ -19,9 +19,21 @@ class Supervisor {  //creamos una clase supervisor
 
 
 
-    public function existeUsuario($usu_usu, $ndo_usu) {
-        $query = $this->db->prepare("SELECT COUNT(*) FROM usuario WHERE usu_usu = ? OR ndo_usu = ?");
-        $query->execute([$usu_usu , $ndo_usu]);
+    public function existeUsuarioPorNombre($usu_usu,) {
+        $query = $this->db->prepare("SELECT COUNT(*) FROM usuario WHERE usu_usu = ? ");
+        $query->execute([$usu_usu]);
+        return $query->fetchColumn() > 0; // Devuelve true si existe, false si no
+    }
+
+    public function existeUsuarioPorDocumento($ndo_usu,) {
+        $query = $this->db->prepare("SELECT COUNT(*) FROM usuario WHERE ndo_usu = ? ");
+        $query->execute([$ndo_usu]);
+        return $query->fetchColumn() > 0; // Devuelve true si existe, false si no
+    }
+
+    public function existeUsuarioPorEmail($ema_usu,) {
+        $query = $this->db->prepare("SELECT COUNT(*) FROM usuario WHERE ema_usu = ? ");
+        $query->execute([$ema_usu]);
         return $query->fetchColumn() > 0; // Devuelve true si existe, false si no
     }
     
@@ -31,13 +43,14 @@ class Supervisor {  //creamos una clase supervisor
     // Agregar un nuevo operario
     public function create($data) {
         
-        $query = $this->db->prepare("INSERT INTO usuario (nom_usu, ape_usu, tdo_usu, ndo_usu, tel_usu, usu_usu, pass_usu, rol_usu, fot_usu) 
-                                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"); //? sentencias preparadas, seguras contra inyecciones SQL
+        $query = $this->db->prepare("INSERT INTO usuario (nom_usu, ape_usu, tdo_usu, ndo_usu, ema_usu, tel_usu, usu_usu, pass_usu, rol_usu, fot_usu) 
+                                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"); //? sentencias preparadas, seguras contra inyecciones SQL
         return $query->execute([
             $data['nom_usu'],
             $data['ape_usu'],
             $data['tdo_usu'],
             $data['ndo_usu'],
+            $data['ema_usu'],
             $data['tel_usu'],
             $data['usu_usu'],
             password_hash($data['pass_usu'], PASSWORD_DEFAULT),
@@ -75,13 +88,14 @@ class Supervisor {  //creamos una clase supervisor
     // Agregar un nuevo operario
     public function registrar($data) {
         
-        $query = $this->db->prepare("INSERT INTO usuario (nom_usu, ape_usu, tdo_usu, ndo_usu, tel_usu, usu_usu, pass_usu, rol_usu, fot_usu) 
-                                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"); //? sentencias preparadas, seguras contra inyecciones SQL
+        $query = $this->db->prepare("INSERT INTO usuario (nom_usu, ape_usu, tdo_usu, ndo_usu, ema_usu, tel_usu, usu_usu, pass_usu, rol_usu, fot_usu) 
+                                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"); //? sentencias preparadas, seguras contra inyecciones SQL
         return $query->execute([
             $data['nom_usu'],
             $data['ape_usu'],
             $data['tdo_usu'],
             $data['ndo_usu'],
+            $data['ema_usu'],
             $data['tel_usu'],
             $data['usu_usu'],
             password_hash($data['pass_usu'], PASSWORD_DEFAULT),
@@ -97,7 +111,8 @@ class Supervisor {  //creamos una clase supervisor
             nom_usu = ?, 
             ape_usu = ?, 
             tdo_usu = ?, 
-            ndo_usu = ?, 
+            ndo_usu = ?,
+            ema_usu = ?, 
             tel_usu = ?, 
             usu_usu = ?, 
             rol_usu = ?, 
@@ -109,6 +124,7 @@ class Supervisor {  //creamos una clase supervisor
             $data['ape_usu'],
             $data['tdo_usu'],
             $data['ndo_usu'],
+            $data['ema_usu'],
             $data['tel_usu'],
             $data['usu_usu'],
             $data['rol_usu'],
@@ -123,7 +139,6 @@ class Supervisor {  //creamos una clase supervisor
         $query->execute([$id]);
         return $query->fetch(PDO::FETCH_ASSOC);
     }
-
 
 
 

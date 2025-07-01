@@ -61,6 +61,7 @@
         <th scope="col">Apellido</th>
         <th scope="col">Tipo Documento</th>
         <th scope="col">Numero documento</th>
+        <th scope="col">correo electronico</th>
         <th scope="col">Telefono</th>
         <th scope="col">Usuario</th>
         <th scope="col">Rol</th>
@@ -80,6 +81,7 @@
                     <td><?php echo $usuarios['ape_usu']; ?></td>
                     <td><?php echo $usuarios['tdo_usu']; ?></td>
                     <td><?php echo $usuarios['ndo_usu']; ?></td>
+                    <td><?php echo $usuarios['ema_usu']; ?></td>
                     <td><?php echo $usuarios['tel_usu']; ?></td>
                     <td><?php echo $usuarios['usu_usu']; ?></td>
                     <td><?php echo $usuarios['rol_usu']; ?></td>
@@ -97,6 +99,7 @@
                         <td><?php echo $usuario['ape_usu']; ?></td>
                         <td><?php echo $usuario['tdo_usu']; ?></td>
                         <td><?php echo $usuario['ndo_usu']; ?></td>
+                        <td><?php echo $usuario['ema_usu']; ?></td>
                         <td><?php echo $usuario['tel_usu']; ?></td>
                         <td><?php echo $usuario['usu_usu']; ?></td>
                         <td><?php echo $usuario['rol_usu']; ?></td>

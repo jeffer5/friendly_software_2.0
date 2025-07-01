@@ -1,4 +1,8 @@
 <?php
+
+require_once 'vendor/autoload.php'; 
+
+
 require_once 'controller/SupervisorController.php';
 require_once 'controller/LoginController.php';
 require_once 'controller/OrdenController.php';
@@ -235,6 +239,16 @@ switch ($action) {
         $operarioController->getByidOpe(); 
         break; 
     case 'getorden':
+        session_start();
+
+        header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
+        header("Pragma: no-cache"); // HTTP 1.0.
+        header("Expires: 0"); // Proxies.
+
+         if (!isset($_SESSION['user'])) {
+            header("Location: index.php?action=home");
+            exit;
+        }
         $operarioController->getorden(); 
         break;
     case 'insertindi':
@@ -308,8 +322,20 @@ switch ($action) {
         $resultadoController->conByData2();
         break;
  
- 
+ // forgot password
 
+     case 'showForgotPasswordForm':
+        $loginController->showForgotPasswordForm();
+        break;
+    case 'sendResetLink': // Este es el POST del formulario de forgot_password.php
+        $loginController->sendResetLink();
+        break;
+    case 'showResetForm': // Este es el GET cuando el usuario hace clic en el enlace del correo
+        $loginController->showResetForm();
+        break;
+    case 'updatePassword': // Este es el POST del formulario de reset_password.php
+        $loginController->updatePassword();
+        break;
         
   
 

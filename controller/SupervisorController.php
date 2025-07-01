@@ -32,19 +32,37 @@ class SupervisorController {
         // Obtener el nombre de usuario y el número de documento del formulario
         $usu_usu = $_POST['usu_usu'];
         $ndo_usu = $_POST['ndo_usu'];
+        $ema_usu = $_POST['ema_usu'];
 
 
         // Verificar si el usuario ya existe en la base de datos
-        $existingUser = $this->supervisor->existeUsuario($usu_usu, $ndo_usu);
+        $existingName = $this->supervisor->existeUsuarioPorNombre($usu_usu);
+        $existingDocument = $this->supervisor->existeUsuarioPorDocumento($ndo_usu);
+        $existingEmail = $this->supervisor->existeUsuarioPorEmail($ema_usu);
 
 
-        if ($existingUser) {
+        if ($existingName) {
             // Si el usuario ya existe, mostrar un mensaje de error y redirigir
             session_start();
-            $_SESSION['mensaje'] = 'El nombre de usuario o el número de documento ya están registrados. Por favor, elija otros.';
+            $_SESSION['mensaje'] = 'El nombre de usuario ya está registrado. Por favor, elija otro.';
             header('Location: index.php?action=index'); // Redirigir al formulario de registro
             exit; // Detener la ejecución
         }
+        else if($existingDocument){
+            // Si el usuario ya existe, mostrar un mensaje de error y redirigir
+            session_start();
+            $_SESSION['mensaje'] = 'El documento ya está registrado. Por favor, elija otro.';
+            header('Location: index.php?action=index'); // Redirigir al formulario de registro
+            exit; // Detener la ejecución
+        }
+        else if($existingEmail){
+            // Si el usuario ya existe, mostrar un mensaje de error y redirigir
+            session_start();
+            $_SESSION['mensaje'] = 'El correo ya se encuentra registrado. Por favor, elija otro.';
+            header('Location: index.php?action=index'); // Redirigir al formulario de registro
+            exit; // Detener la ejecución
+        }
+
 
         // Si el usuario no existe, proceder con el registro
         $fotoNombre = null;
@@ -61,6 +79,7 @@ class SupervisorController {
             'ape_usu' => $_POST['ape_usu'],
             'tdo_usu' => $_POST['tdo_usu'],
             'ndo_usu' => $_POST['ndo_usu'],
+            'ema_usu' => $_POST['ema_usu'],
             'tel_usu' => $_POST['tel_usu'],
             'usu_usu' => $_POST['usu_usu'],
             'pass_usu' => $_POST['pass_usu'],
@@ -91,16 +110,33 @@ class SupervisorController {
         // Get the username from the form
         $usu_usu = $_POST['usu_usu'];
         $ndo_usu = $_POST['ndo_usu'];
+        $ema_usu = $_POST['ema_usu'];
 
-        // Check if the username already exists in the database
-        $existingUser = $this->supervisor->existeUsuario($usu_usu, $ndo_usu);
-        
-        if ($existingUser) {
-            // If the user exists, show an error message and prevent registration
+        $existingName = $this->supervisor->existeUsuarioPorNombre($usu_usu);
+        $existingDocument = $this->supervisor->existeUsuarioPorDocumento($ndo_usu);
+        $existingEmail = $this->supervisor->existeUsuarioPorEmail($ema_usu);
+
+
+        if ($existingName) {
+            // Si el usuario ya existe, mostrar un mensaje de error y redirigir
             session_start();
-            $_SESSION['mensaje'] = 'El nombre de usuario ya está registrado, por favor elija otro.';
-            header('Location: index.php?action=home'); // Redirect back to the registration page
-            exit;
+            $_SESSION['mensaje'] = 'El nombre de usuario ya están registrados. Por favor, elija otro.';
+            header('Location: index.php?action=home'); // Redirigir al formulario de registro
+            exit; // Detener la ejecución
+        }
+        else if($existingDocument){
+            // Si el usuario ya existe, mostrar un mensaje de error y redirigir
+            session_start();
+            $_SESSION['mensaje'] = 'El documento ya está registrados. Por favor, elija otro.';
+            header('Location: index.php?action=home'); // Redirigir al formulario de registro
+            exit; // Detener la ejecución
+        }
+        else if($existingEmail){
+            // Si el usuario ya existe, mostrar un mensaje de error y redirigir
+            session_start();
+            $_SESSION['mensaje'] = 'El correo ya se encuentra registrado. Por favor, elija otro.';
+            header('Location: index.php?action=home'); // Redirigir al formulario de registro
+            exit; // Detener la ejecución
         }
 
         // If no existing user, proceed with file upload
@@ -116,6 +152,7 @@ class SupervisorController {
             'ape_usu' => $_POST['ape_usu'],
             'tdo_usu' => $_POST['tdo_usu'],
             'ndo_usu' => $_POST['ndo_usu'],
+            'ema_usu' => $_POST['ema_usu'],
             'tel_usu' => $_POST['tel_usu'],
             'usu_usu' => $_POST['usu_usu'],
             'pass_usu' => $_POST['pass_usu'],
@@ -208,6 +245,7 @@ class SupervisorController {
         require_once 'views/usuarios/index.php';
     }
 }
+
 
 
 

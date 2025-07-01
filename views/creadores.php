@@ -50,7 +50,7 @@
                 construcción, prueba y mantenimiento de aplicaciones informáticas bajo estándares de calidad y buenas prácticas de desarrollo.
                 Tengo conocimientos en lenguajes como Java, JavaScript, Python y SQL, así como en herramientas
                 y entornos como Git, Visual Studio Code, MySQL y HTML/CSS.</p>
-            <button type="button" class="btn btn-primary">mirar cv</button>
+            <a href="files/prueba.pdf" download="Hoja de vida" type="button" class="btn btn-primary">mirar cv</a>
             </div>
             <img src="img/fotofriendly.jpg">
         </section>
@@ -62,7 +62,7 @@
                 Domina bases de datos como MySQL, Oracle y SQL Server, y tiene habilidades en análisis y levantamiento de requerimientos. 
                 Se destaca por su enfoque analítico, responsabilidad y compromiso con el desarrollo de soluciones seguras y eficientes.
             </p>
-            <button type="button" class="btn btn-primary">mirar cv</button>
+            <a href="files/prueba.pdf" download="Hoja de vida" type="button" class="btn btn-primary">mirar cv</a>
             </div>
             <img src="img/jefer.jpg">
         </section>
@@ -73,7 +73,7 @@
                 (Java, Python, PHP, C++) y front-end (HTML, CSS, JavaScript, React, Bootstrap), además del manejo de bases de datos como MySQL, Oracle y SQL Server.
                 Cuenta con experiencia en el análisis y levantamiento de requerimientos, destacándose por su enfoque analítico, 
                 responsabilidad y compromiso con la calidad del software y la seguridad digital.</p>
-            <button type="button" class="btn btn-primary">mirar cv</button>
+            <a href="files/prueba.pdf" download="Hoja de vida" type="button" class="btn btn-primary">mirar cv</a>
             </div>
             <img src="img/vivi.jpg">
         </section>

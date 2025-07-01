@@ -61,7 +61,14 @@
                 <div class="form-group row">
                     <label for="staticEmail" class="col-sm-3 col-form-label">Numero de documento</label>
                     <div class="col-sm-8">
-                    <input type="number" class="form-control" id="staticNdo" name="ndo_usu"  max="10" required>
+                    <input type="number" class="form-control" id="staticNdo" name="ndo_usu"  required>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-3 col-form-label">correo electronico</label>
+                    <div class="col-sm-8">
+                    <input type="email" class="form-control" id="staticEma" name="ema_usu" required>
                     </div>
                 </div>
                 <br>
@@ -82,7 +89,7 @@
                 <div class="form-group row">
                     <label for="staticEmail" class="col-sm-3 col-form-label">Contrasena</label>
                     <div class="col-sm-8">
-                    <input type="password" class="form-control" id="staticPassword" name="pass_usu" minlength="8" required>
+                    <input type="password" class="form-control" id="staticPassword" name="pass_usu"  required>
                     </div>
                 </div>
                 <br>

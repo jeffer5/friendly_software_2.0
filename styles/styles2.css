@@ -9,6 +9,7 @@ body{
 }
 
 
+
 #logo{
     width: 50%;
     margin-left: 25%;
@@ -18,13 +19,23 @@ body{
 .card{
     border: #FF1493 1px solid;
     background: linear-gradient(to bottom, rgb(31, 31, 101), #FF1493);
-    color: antiquewhite;
+    
     
 }
 
 .card input{
     background-color: antiquewhite;
 }
+
+.card label{
+    color: white;
+}
+
+.card h4{
+    color: white;
+}
+
+
 
 .d-grid{
     margin-bottom: 3%;
@@ -35,4 +46,9 @@ body{
     width: 50%;
     margin-left: 25%;
 
+}
+
+.forgot{
+    margin-left: 32%;
+    color: white;
 }
