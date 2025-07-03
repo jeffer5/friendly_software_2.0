@@ -108,6 +108,7 @@ main {
     flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
+    margin-top: 2%;
   }
   
   .step {
@@ -117,29 +118,17 @@ main {
   }
   
   .step img {
-    width: 60px;
+    width: 200px;
+    height: 200px;
     margin-bottom: 1rem;
+    border-radius: 100px;
+  }
+
+
+   .step img:hover {
+    scale: 1.1;
   }
   
-  .benefits {
-    background-color: #eef2f5;
-    text-align: center;
-    width: 94%;
-    margin-left: 3%;
-    border-radius: 10px;
-  }
-  
-  .benefits ul {
-    list-style: none;
-    padding: 0;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .benefits li {
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-  }
   
   .target-audience {
     background-color:#7c199b ;
@@ -177,6 +166,72 @@ main {
     color: antiquewhite;
 }
 
+.benefits {
+        background-color: #eef2f5;
+        text-align: center;
+        width: 94%;
+        margin-left: 3%;
+        border-radius: 10px;
+        padding: 0; /* Asegúrate de que no haya padding aquí que mueva el carrusel */
+        position: relative; /* Esencial para posicionar el texto con 'absolute' */
+        height: 400px; /* Define una altura fija para la sección o ajusta según necesites */
+        overflow: hidden; /* Oculta cualquier parte de la imagen que se desborde */
+    }
+
+    .benefits h2,
+    .benefits ul {
+        z-index: 2; /* Asegura que el texto esté por encima del carrusel */
+        color: #333; /* Color del texto para que sea visible sobre el carrusel */
+        /* Otros estilos de texto que ya tengas o quieras añadir */
+    }
+
+    /* Nuevo contenedor para el texto sobre el carrusel */
+    .benefits-text-overlay {
+        position: absolute; /* Posiciona este contenedor sobre el carrusel */
+        top: 50%; /* Centrar verticalmente */
+        left: 50%; /* Centrar horizontalmente */
+        transform: translate(-50%, -50%); /* Ajustar para un centrado real */
+        width: 80%; /* Ancho del texto, ajusta si es necesario */
+        max-width: 800px; /* O un max-width para que no sea demasiado ancho */
+        z-index: 2; /* Asegura que esté por encima del carrusel */
+        background-color: rgba(255, 255, 255, 0.7); /* Fondo semi-transparente para visibilidad */
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+      .benefits-text-overlay ul {
+          list-style: none;
+          padding: 0;
+          margin: 0; /* Reinicia el margen por si acaso */
+      }
+
+      .benefits-text-overlay li {
+          margin-bottom: 0.5rem; /* Espaciado entre elementos de la lista */
+          font-size: 1.1rem;
+      }
+
+      /* Estilos para el carrusel */
+      #carouselExample {
+          position: absolute; /* Posiciona el carrusel para que ocupe todo el espacio de la sección */
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 1; /* Asegura que el carrusel esté debajo del texto */
+      }
+
+      /* Estilos para las imágenes dentro del carrusel para que "cubran" */
+      .carousel-item {
+          height: 100%; /* El item del carrusel debe ocupar el 100% de la altura de su contenedor */
+      }
+
+      .carousel-img-cover { /* Nueva clase aplicada a las imágenes */
+          width: 100%;
+          height: 100%; /* Ocupa el 100% de la altura del carousel-item */
+          object-fit: cover; /* ¡Importante! Hace que la imagen cubra el área sin distorsionarse */
+          /* object-position: center; / / Opcional: para centrar la parte visible de la imagen */
+      }
 
 
 .container-fluid p{
@@ -192,4 +247,10 @@ main {
 }
 
 
+.parrafo{
+
+  width: 20%;
+  margin-left: 40%;
+  margin-top: 2%;
+}
 

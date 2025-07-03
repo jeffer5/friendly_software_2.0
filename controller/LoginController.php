@@ -216,7 +216,7 @@ public function sendResetLink() {
 
                 session_start();
                 $_SESSION['mensaje'] = '¡Tu contraseña ha sido restablecida con éxito! Ya puedes iniciar sesión.';
-                header('Location: index.php?action=login');
+                header('Location: index.php?action=home');
                 exit;
             } else {
                 $error = "El enlace no es válido o ha expirado. Por favor, solicita uno nuevo.";

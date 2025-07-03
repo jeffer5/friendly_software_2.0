@@ -62,41 +62,71 @@
             <div class="steps"> <!-- Contenedor de pasos -->
                 <!-- Paso 1: Recolectar -->
                 <div class="step">
-                    
                     <h3>Recolectar</h3>
+                    <img src="img/recolectar.jpg" alt="">
                     <p>Recopila automáticamente datos de rendimiento y actividad de los empleados con una configuración mínima.</p>
                 </div>
                 <!-- Paso 2: Analizar -->
                 <div class="step">
-                    
                     <h3>Analizar</h3>
+                    <img src="img/analizar.jpg" alt="">
                     <p>Nuestros algoritmos inteligentes detectan patrones, dinámicas de equipo y tendencias de eficiencia.</p>
                 </div>
                 <!-- Paso 3: Actuar -->
                 <div class="step">
-                    
                     <h3>Actuar</h3>
+                    <img src="img/actuar.png" alt="">
                     <p>Recursos Humanos recibe informes claros y útiles para tomar decisiones basadas en datos reales.</p>
                 </div>
             </div>
         </section>
       
         <!-- Sección de Beneficios -->
+        <!-- Sección de Beneficios -->
+        
         <section class="benefits">
-            <h2>Beneficios para tu Equipo</h2>
-            <ul>
-                <li>✅ Mejora la productividad y la colaboración del equipo</li>
-                <li>✅ Detecta el agotamiento antes de que afecte el rendimiento</li>
-                <li>✅ Toma decisiones con información actualizada y real</li>
-                <li>✅ Métricas totalmente personalizables para tu flujo de trabajo</li>
-            </ul>
+            <div class="benefits-text-overlay">
+                <h2>Beneficios para tu Equipo</h2>
+                <ul>
+                    <li>✅ Mejora la productividad y la colaboración del equipo</li>
+                    <li>✅ Detecta el agotamiento antes de que afecte el rendimiento</li>
+                    <li>✅ Toma decisiones con información actualizada y real</li>
+                    <li>✅ Métricas totalmente personalizables para tu flujo de trabajo</li>
+                </ul>
+            </div>
+
+            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="img/productivo.jpg" class="d-block w-100 carousel-img-cover" alt="Descripción de la imagen 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/productivo1.jpg" class="d-block w-100 carousel-img-cover" alt="Descripción de la imagen 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/productivo2.jpg" class="d-block w-100 carousel-img-cover" alt="Descripción de la imagen 3">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
         </section>
       
         <!-- Sección de Audiencia Objetivo -->
         <section class="target-audience">
             <h2>Ideal para Cualquier Industria</h2>
             <p>
-                Ya sea que trabajes en <strong>manufactura</strong>, <strong>tecnología</strong>, <strong>logística</strong> o <strong>servicio al cliente</strong>—nuestra plataforma se adapta a los objetivos y dinámicas de tu equipo.
+                <div class="parrafo">
+                Ya sea que trabajes en <strong>manufactura</strong>, <strong>tecnología</strong>, 
+                <strong>logística</strong> o <strong>servicio al cliente</strong>
+                —nuestra plataforma se adapta a los objetivos y dinámicas de tu equipo.
+                </div>
             </p>
         </section>
   
