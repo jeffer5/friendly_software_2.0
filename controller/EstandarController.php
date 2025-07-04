@@ -84,24 +84,37 @@ class EstandarController{
 
 
  public function searching() {
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id']) && !empty($_POST['id'])) {
-        $id = $_POST['id'];  // Obtener el ID del formulario
-        $usuarios = $this->estandar->getById1($id);  // Buscar el usuario por ID
+    // Inicializamos $usuarios como un array vacío. Esto asegura que la vista siempre
+    // tendrá una variable definida para trabajar, incluso si no se encuentran resultados.
+    $usuarios = [];
+    // Inicializamos una variable para almacenar cualquier mensaje de error que queramos mostrar en la vista.
+    $mensaje_error = '';
 
-        // Verificar si se encontró el usuario
-        if ($usuarios) {
-            // Usuario encontrado, pasamos los datos a la vista
-            require_once 'views/Estandar/estandares.php';  // O la vista que sea
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id']) && !empty($_POST['id'])) {
+        $id = $_POST['id'];
+        // Llamamos al método del modelo para buscar por ID.
+        // Asumimos que getById1 devuelve un array si encuentra un registro, o NULL/FALSE si no lo encuentra.
+        $usuario_encontrado = $this->estandar->getById1($id);
+
+        // Verificamos si se encontró un usuario específico por ID.
+        if ($usuario_encontrado) {
+            // Si se encontró, lo asignamos a $usuarios. Lo envolvemos en un array para que
+            // tu vista pueda usar un bucle `foreach` de manera consistente, incluso para un solo resultado.
+            $usuarios = [$usuario_encontrado];
         } else {
-            // No se encontró el usuario con ese ID
-            echo "No se encontró el usuario con ID: $id";
-            // Aquí podrías redirigir o mostrar un mensaje en la vista
+            // Si no se encontró el usuario, preparamos el mensaje de error.
+            $mensaje_error = "No se encontró el usuario con ID: $id";
+            // $usuarios permanece como un array vacío, lo que hará que la vista muestre "No se encontraron resultados".
         }
     } else {
-        // Si no es un POST, mostrar todos los usuarios
+        // Si no es una solicitud POST (ej. carga inicial de la página), obtenemos todos los usuarios.
+        // Asumimos que getAll() devuelve un array (vacío o con datos).
         $usuarios = $this->estandar->getAll();
-        require_once 'views/Estandar/estandares.php';
     }
+
+    // La vista siempre se carga al final del controlador. Esto garantiza que la página
+    // se renderice consistentemente con los datos y mensajes preparados.
+    require_once 'views/Estandar/estandares.php';
 }
 
 }

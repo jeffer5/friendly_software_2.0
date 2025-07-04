@@ -82,8 +82,7 @@
         </section>
       
         <!-- Sección de Beneficios -->
-        <!-- Sección de Beneficios -->
-        
+    
         <section class="benefits">
             <div class="benefits-text-overlay">
                 <h2>Beneficios para tu Equipo</h2>

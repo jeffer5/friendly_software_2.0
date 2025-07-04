@@ -226,24 +226,40 @@ class SupervisorController {
 
 
     public function buscar() {
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id']) && !empty($_POST['id'])) {
-        $id = $_POST['id'];  // Obtener el ID del formulario
-        $usuarios = $this->supervisor->getById1($id);  // Buscar el usuario por ID
+    // Initialize $usuarios to an empty array. This ensures the view always has a defined variable
+    // to iterate over or check for emptiness, even if no results are found.
+    $usuarios = [];
+    // Initialize a variable to hold any error message to be passed to the view.
+    $mensaje_error = '';
 
-        // Verificar si se encontró el usuario
-        if ($usuarios) {
-            // Usuario encontrado, pasamos los datos a la vista
-            require_once 'views/usuarios/index.php';  // O la vista que sea
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id']) && !empty($_POST['id'])) {
+        $id = $_POST['id'];
+        // Call the model method to get the user by ID.
+        // Assuming getById1 returns an array if found, or NULL/FALSE if not found.
+        $usuario_encontrado = $this->supervisor->getById1($id);
+
+        // Check if a specific user was found by ID
+        if ($usuario_encontrado) {
+            // If a user is found, assign it. We wrap it in an array to maintain consistency
+            // if your view expects a foreach loop even for single results.
+            // If your view has logic for a single result (like `if (isset($usuarios['id_ord']))`),
+            // you can assign $usuarios = $usuario_encontrado; directly.
+            // For general table display, usually a list is expected.
+            $usuarios = [$usuario_encontrado]; // Wrap in an array if the view expects an array of users
         } else {
-            // No se encontró el usuario con ese ID
-            echo "No se encontró el usuario con ID: $id";
-            // Aquí podrías redirigir o mostrar un mensaje en la vista
+            // If no user was found, set the error message.
+            $mensaje_error = "No se encontró el usuario con ID: $id";
+            // $usuarios remains an empty array, which will trigger the "no results" message in the view.
         }
     } else {
-        // Si no es un POST, mostrar todos los usuarios
+        // If it's not a POST request (e.g., initial page load), get all users.
+        // Assuming getAll() returns an array (empty or with data).
         $usuarios = $this->supervisor->getAll();
-        require_once 'views/usuarios/index.php';
     }
+
+    // Always load the view at the end. This guarantees the page is rendered
+    // with the current state of $usuarios and $mensaje_error.
+    require_once 'views/usuarios/index.php';
 }
 
 

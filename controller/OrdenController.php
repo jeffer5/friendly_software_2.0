@@ -90,24 +90,27 @@ class OrdenController{
 
 
     public function search() {
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id']) && !empty($_POST['id'])) {
-        $id = $_POST['id'];  // Obtener el ID del formulario
-        $usuarios = $this->orden->getById1($id);  // Buscar el usuario por ID
+    // Inicializar $usuarios para que siempre tenga un valor definido
+    $usuarios = []; // Por defecto, un array vacío
 
-        // Verificar si se encontró el usuario
-        if ($usuarios) {
-            // Usuario encontrado, pasamos los datos a la vista
-            require_once 'views/Orden/ordenes.php';  // O la vista que sea
-        } else {
-            // No se encontró el usuario con ese ID
-            echo "No se encontró el usuario con ID: $id";
-            // Aquí podrías redirigir o mostrar un mensaje en la vista
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id']) && !empty($_POST['id'])) {
+        $id = $_POST['id'];
+        $usuarios = $this->orden->getById($id); // getById retorna FALSE si no encuentra, o un array si lo encuentra
+
+        // Si $usuarios es FALSE, lo convertimos a un array vacío para que la vista lo procese.
+        if ($usuarios === false) {
+            $usuarios = [];
+            // Opcional: podrías poner aquí un mensaje de notificación si quieres,
+            // pero la vista se encargará de "No se encontraron resultados".
+            // echo "No se encontró el usuario con ID: $id";
         }
     } else {
         // Si no es un POST, mostrar todos los usuarios
-        $usuarios = $this->orden->getAll();
-        require_once 'views/Orden/ordenes.php';
+        $usuarios = $this->orden->getAll(); // getAll debería retornar un array (vacío o con datos)
     }
+
+    // La vista se carga SIEMPRE después de determinar el valor de $usuarios
+    require_once 'views/Orden/ordenes.php';
 }
 
 

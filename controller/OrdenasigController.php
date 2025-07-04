@@ -50,30 +50,34 @@ class OrdenasigController{
 
     
     public function buscaru() {
+    // Initialize $detalles to an empty array to ensure the view always has an iterable variable.
+    // Also, initialize a message variable.
+    $detalles = [];
+    $mensaje_error = ''; // New variable to hold any error message
+
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id']) && !empty($_POST['id'])) {
-        $id = $_POST['id'];  // Obtener el ID del formulario
-        $detalles = $this->ordenasig->getById1($id);  // Buscar el usuario por ID
-        $usuarios = $this->ordenasig->showOpe();
-        $ordenes =  $this->ordenasig->showOrd();
+        $id = $_POST['id'];
+        $detalles_encontrados = $this->ordenasig->getById1($id); // This returns NULL if not found, or an array.
 
-        // Verificar si se encontró el usuario
-        if ($detalles) {
-            // Usuario encontrado, pasamos los datos a la vista
-            require_once 'views/Orden/asignar.php';  // O la vista que sea
+        // Check if a specific detail was found by ID
+        if ($detalles_encontrados) {
+            $detalles = $detalles_encontrados; // Assign the found detail
         } else {
-            // No se encontró el usuario con ese ID
-            echo "No se encontró el usuario con ID: $id";
-
-            require_once 'views/Orden/asignar.php';
-            // Aquí podrías redirigir o mostrar un mensaje en la vista
+            // If not found, set an error message
+            $mensaje_error = "No se encontró el usuario con ID: $id";
+            // $detalles remains an empty array, so the view's !empty($detalles) will trigger the "no results" message.
         }
     } else {
-        // Si no es un POST, mostrar todos los usuarios
-        $detalles = $this->ordenasig->getAll();
-        $usuarios = $this->ordenasig->showOpe();
-        $ordenes =  $this->ordenasig->showOrd();
-        require_once 'views/Orden/asignar.php';
+        // If not a POST request (initial load or no ID provided)
+        $detalles = $this->ordenasig->getAll(); // This should return an array (empty or with data)
     }
+
+    // Always load these for the view, regardless of whether an ID was searched.
+    $usuarios = $this->ordenasig->showOpe();
+    $ordenes = $this->ordenasig->showOrd();
+
+    // The view is always loaded at the end to render the page based on the prepared variables.
+    require_once 'views/Orden/asignar.php';
 }
 
 

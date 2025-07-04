@@ -187,26 +187,42 @@ class OperarioController{
 
 
     public function buscarindi() {
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id']) && !empty($_POST['id'])) {
-        $id = $_POST['id'];  // Obtener el ID del formulario
-        $indicadores = $this->operario->showindi($id);  // Buscar el usuario por ID
+    // Inicializamos $indicadores como un array vacío. Esto garantiza que la vista
+    // siempre tendrá una variable definida para trabajar, incluso si no hay resultados.
+    $indicadores = [];
+    // Inicializamos una variable para almacenar cualquier mensaje de error.
+    $mensaje_error = '';
 
-        // Verificar si se encontró el usuario
-        if ($indicadores) {
-            // Usuario encontrado, pasamos los datos a la vista
-            require_once 'views/Operario/verindicador.php';  // O la vista que sea
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id']) && !empty($_POST['id'])) {
+        $id = $_POST['id'];
+        // Llamamos al método del modelo para buscar los indicadores.
+        // Asumimos que showindi devuelve un array si encuentra, o NULL/FALSE si no.
+        $indicadores_encontrados = $this->operario->showindi($id);
+
+        // Verificamos si se encontraron indicadores para el ID proporcionado.
+        if ($indicadores_encontrados) {
+            // Si se encontraron, los asignamos.
+            // Si showindi puede devolver múltiples indicadores para un ID,
+            // asegúrate de que $indicadores_encontrados ya sea un array de arrays.
+            // Si devuelve un solo array asociativo, y tu vista usa foreach,
+            // deberías envolverlo en un array: $indicadores = [$indicadores_encontrados];
+            $indicadores = $indicadores_encontrados;
         } else {
-            // No se encontró el usuario con ese ID
-            echo "No se encontró el usuario con ID: $id";
-            // Aquí podrías redirigir o mostrar un mensaje en la vista
+            // Si no se encontraron indicadores, preparamos el mensaje de error.
+            $mensaje_error = "No se encontraron indicadores para el ID: $id";
+            // $indicadores permanece como un array vacío, lo que hará que la vista
+            // muestre "No se encontraron resultados" si no hay otros indicadores.
         }
     } else {
-        // Si no es un POST, mostrar todos los usuarios
+        // Si no es una solicitud POST (ej. carga inicial), obtenemos todos los indicadores.
+        // Asumimos que getindi() devuelve un array (vacío o con datos).
         $indicadores = $this->operario->getindi();
-        require_once 'views/Operario/verindicador.php';
     }
-}
 
+    // La vista siempre se carga al final. Esto asegura que la página se renderice
+    // consistentemente con los datos y mensajes preparados.
+    require_once 'views/Operario/verindicador.php';
+}
 
 
 

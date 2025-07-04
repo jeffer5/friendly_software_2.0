@@ -37,7 +37,6 @@
 </div>
 
 
-
 <table class="table table-striped table-dark">
     <thead >
     <tr>
@@ -54,11 +53,11 @@
     </tr>
     </thead>
     <tbody>
-        <?php if ($usuarios): ?>
+         <?php if ($usuarios): ?>
             <?php if (isset($usuarios['id_ord'])): ?>
                 <!-- Si solo se encontró un usuario con ese ID -->
                 <tr>
-                    <td><?php echo $usuarios['id_ord']; ?></td>
+                     <td><?php echo $usuarios['id_ord']; ?></td>
                     <td><?php echo $usuarios['nro_ord']; ?></td>
                     <td><?php echo $usuarios['nom_cli']; ?></td>
                     <td><?php echo $usuarios['fec_ent']; ?></td>
