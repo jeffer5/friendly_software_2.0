@@ -62,7 +62,7 @@
                 Domina bases de datos como MySQL, Oracle y SQL Server, y tiene habilidades en análisis y levantamiento de requerimientos. 
                 Se destaca por su enfoque analítico, responsabilidad y compromiso con el desarrollo de soluciones seguras y eficientes.
             </p>
-            <a href="files/prueba.pdf" download="Hoja de vida" type="button" class="btn btn-primary">mirar cv</a>
+            <a href="files/jefer.pdf" download="Hoja de vida" type="button" class="btn btn-primary">mirar cv</a>
             </div>
             <img src="img/jefer.jpg">
         </section>

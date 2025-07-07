@@ -2,6 +2,7 @@
 
 .body{
   background-color: black; 
+   Font-family:"Cal Sans", sans-serif;
 }
 
 
@@ -244,6 +245,11 @@ main {
     padding: 20px;
     color: #fff;
 
+}
+
+.container-fluid a:hover{
+  color: aquamarine;
+  scale: 1.1;
 }
 
 

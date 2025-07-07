@@ -61,6 +61,10 @@
     }
 
 
+    .container-fluid a:hover{
+    color: aquamarine;
+    scale: 1.1;
+  }
 
 
      .kenburns-top {

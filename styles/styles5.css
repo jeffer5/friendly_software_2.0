@@ -5,6 +5,7 @@
   background-size: cover;
   background-position: center; 
   background-repeat: no-repeat;
+   Font-family:"Cal Sans", sans-serif;
 }
 
 
@@ -70,4 +71,9 @@
     font-weight: bold; /* Make text bold */
     box-shadow: 0 0 10px rgba(40, 167, 69, 0.5); /* A subtle glow */
     
+}
+
+.container-fluid a:hover{
+  color: aquamarine;
+  scale: 1.1;
 }

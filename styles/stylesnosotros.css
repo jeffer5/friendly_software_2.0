@@ -60,7 +60,7 @@ main {
     margin-top: 4%;
     background-color:black;
     padding: 1%;
-
+     Font-family:"Cal Sans", sans-serif;
 
   }
   .footer-contenido{
@@ -73,7 +73,10 @@ main {
   }
 
   
-
+  .container-fluid a:hover{
+  color: aquamarine;
+  scale: 1.1;
+}
   
 
   

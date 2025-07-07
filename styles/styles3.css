@@ -12,6 +12,7 @@
     background-size: cover;
     background-position: center; 
     background-repeat: no-repeat;
+     Font-family:"Cal Sans", sans-serif;
 }
 
 main {
@@ -100,6 +101,11 @@ main {
    scale: 1.1;
 
   }
+
+  .container-fluid a:hover{
+  color: aquamarine;
+  scale: 1.1;
+}
 
 
 

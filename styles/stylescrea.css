@@ -183,3 +183,8 @@ body{
     float: left;
     color: #0CFFF4;
 }
+
+.container-fluid a:hover{
+  color: aquamarine;
+  scale: 1.1;
+}

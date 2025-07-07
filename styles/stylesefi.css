@@ -5,6 +5,7 @@
     background-size: cover;
     background-position: center; 
     background-repeat: no-repeat;
+     Font-family:"Cal Sans", sans-serif;
  }
  
  .target-audience {
@@ -196,4 +197,9 @@ circle:nth-child(2){
 
 .sidebar a{
   color: white !important;
+}
+
+.container-fluid a:hover{
+  color: aquamarine;
+  scale: 1.1;
 }

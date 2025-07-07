@@ -4,6 +4,7 @@ body{
     background-size: cover;
     background-position: center; 
     background-repeat: no-repeat;
+     Font-family:"Cal Sans", sans-serif;
     
 
 }
@@ -19,7 +20,7 @@ body{
 .card{
     border: #FF1493 1px solid;
     background: linear-gradient(to bottom, rgb(31, 31, 101), #FF1493);
-    
+     Font-family:"Cal Sans", sans-serif;
     
 }
 

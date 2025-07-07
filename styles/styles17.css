@@ -45,3 +45,8 @@
     font-size: 50px;
     
   }
+
+  .container-fluid a:hover{
+  color: aquamarine;
+  scale: 1.1;
+}
