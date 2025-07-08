@@ -1,11 +1,10 @@
- @import url('https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap');
  
  body{
     background-image: url('../img/findito.png');
     background-size: cover;
     background-position: center; 
     background-repeat: no-repeat;
-     Font-family:"Cal Sans", sans-serif;
  }
  
  .target-audience {
@@ -117,8 +116,6 @@
     }
 
 
-    /*estilos consultar usu*/
-
     .content label{
     color: white;
 
@@ -199,7 +196,64 @@ circle:nth-child(2){
   color: white !important;
 }
 
-.container-fluid a:hover{
-  color: aquamarine;
-  scale: 1.1;
+
+
+@media print {
+  /* Oculta todo lo demás */
+  body * {
+    visibility: hidden;
+  }
+
+  /* Muestra solo la tabla y su contenido */
+  .table, 
+  .table * {
+    visibility: visible;
+  }
+
+  .table {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+  }
+
+  /* Oculta la sidebar, encabezados, botones y SVG */
+  .sidebar,
+  .content,
+  .content h1,
+  .content p,
+  button,
+  svg,
+  .porcentaje svg {
+    display: none !important;
+  }
+
+  /* Muestra el texto de porcentaje (100%, etc.) aunque se oculte el SVG */
+  .porcentaje span {
+    visibility: visible !important;
+    position: static;
+    display: inline;
+    font-size: 16pt;
+    color: aqua;
+  }
+
+  /* Mantiene estilos visuales de la tabla */
+  .table th {
+    background-color: #FF1493 !important;
+    color: white !important;
+    font-size: 16pt;
+    text-align: center;
+  }
+
+  .table td {
+    font-size: 14pt;
+    color: white;
+    background-color: #343a40 !important; /* Color de fondo oscuro */
+  }
+
+  body {
+    background: white !important;
+    font-family: "Cal Sans", sans-serif;
+  }
 }

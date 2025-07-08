@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <title>Document</title>
+    <title>Registros Por Fecha</title>
 </head>
 <body>
 
@@ -43,6 +43,7 @@
         <input type="date" name="fecha1" required>
         <input type="date" name="fecha2" required>
         <input type="submit" class="btn btn-primary asi" value="Escoger" name="escoger">
+        <button style="background-color: aquamarine; border: none; padding: 10px 20px; border-radius: 5px;" onclick="window.print()">🖨️ Imprimir o Guardar como PDF</button>
     </form>
     </div>
     

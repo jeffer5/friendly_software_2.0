@@ -1,4 +1,4 @@
- @import url('https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap');
  
  body{
     background-image: url('../img/findito.png');
@@ -119,8 +119,6 @@
     }
 
 
-    /*estilos consultar usu*/
-
     .content label{
     color: white;
 
@@ -215,3 +213,29 @@ circle:nth-child(2){
   color: white !important;
 }
 
+
+
+
+@media print {
+    .sidebar,
+    .form-container,
+    .btn,
+    .toggle-icon {
+        display: none !important;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    table {
+        width: 100%;
+        font-size: 14pt;
+    }
+
+    .content {
+        margin: 0 auto;
+        width: 100%;
+    }
+}

@@ -47,7 +47,8 @@
             <?php endforeach; ?>
         </select>
 
-        <input type="submit" class="btn btn-primary asi" value="Escoger" name="escoger">
+         <input type="submit" class="btn btn-primary asi" value="Escoger" name="escoger">
+        <button style="background-color: aquamarine; border: none; padding: 10px 20px; border-radius: 5px;" onclick="window.print()">🖨️ Imprimir o Guardar como PDF</button>
     </form>
     </div>
     
