@@ -27,23 +27,19 @@
 
 
     <h2 class="title ">Detalles de la orden</h2><br>
-    <div class="card mb-3 tar" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-8">
-        <div class="card-body">
-            <img src="img/orden2.png" ><br> <br>
-        <p class="card-text"><strong>ID:</strong> <?php echo $usuario['id_ord']; ?></p>
-        <p class="card-text"><strong>Numero de orden:</strong> <?php echo $usuario['nro_ord']; ?></p>
-        <p class="card-text"><strong>Nombre del cliente:</strong> <?php echo $usuario['nom_cli']; ?></p>
-        <p class="card-text"><strong>Fecha de entrega:</strong> <?php echo $usuario['fec_ent']; ?></p>
-        <p class="card-text"><strong>Producto:</strong> <?php echo $usuario['nom_pro']; ?></p>
-        <p class="card-text"><strong>Cantidad total:</strong> <?php echo $usuario['can_tot']; ?></p>
-        <p class="card-text"><strong>Poceso:</strong> <?php echo $usuario['pro_ord']; ?></p>
 
-</div>
-</div>
-</div>
-</div><br><br>
-</center>
+    <div class="card" style="width: 35rem;">
+      <img src="img/orden2.png" class="card-img-top" alt="...">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>ID:</strong> <?php echo $usuario['id_ord']; ?></li>
+        <li class="list-group-item"><strong>Numero de orden:</strong> <?php echo $usuario['nro_ord']; ?></li>
+        <li class="list-group-item"><strong>Nombre del cliente:</strong> <?php echo $usuario['nom_cli']; ?></li>
+        <li class="list-group-item"><strong>Fecha de entrega:</strong> <?php echo $usuario['fec_ent']; ?></li>
+        <li class="list-group-item"><strong>Producto:</strong> <?php echo $usuario['nom_pro']; ?></li>
+        <li class="list-group-item"><strong>Cantidad total:</strong> <?php echo $usuario['can_tot']; ?></li>
+        <li class="list-group-item"><strong>Proceso:</strong> <?php echo $usuario['pro_ord']; ?></li>
+      </ul>
+    </div>
+    
 </body>
 </html>

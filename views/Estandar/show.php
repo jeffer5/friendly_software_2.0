@@ -24,21 +24,19 @@
     </nav>
 
     
-        <h2 class="title ">Detalles de los estandares</h2>
-        <div class="card mb-3 tar" style="max-width: 540px;">
-    <div class="row g-0">
-        <div class="col-md-8">
-            <div class="card-body">
-                <img src="img/estandar.jpg" >
-        <p class="card-text"><strong>ID:</strong> <?php echo $usuario['id_pro']; ?></p>
-        <p class="card-text"><strong>Producto:</strong> <?php echo $usuario['pro_pro']; ?></p>
-        <p class="card-text"><strong>Proceso:</strong> <?php echo $usuario['act_pro']; ?></p>
-        <p class="card-text"><strong>Cantidad estandar:</strong> <?php echo $usuario['can_pro']; ?></p>
-        <p class="card-text"><strong>Tiempo estandar:</strong> <?php echo $usuario['tie_pro']; ?></p>
-</div>
-</div>
-</div>
-</div>
+        <h2 class="title ">Detalle de los estandares</h2>
+        
+      <div class="card" style="width: 35rem;">
+        <img src="img/orden2.png" class="card-img-top" alt="...">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>ID:</strong> <?php echo $usuario['id_pro']; ?></li>
+          <li class="list-group-item"><strong>Producto:</strong> <?php echo $usuario['pro_pro']; ?></li>
+          <li class="list-group-item"><strong>Proceso:</strong> <?php echo $usuario['act_pro']; ?></li>
+          <li class="list-group-item"><strong>Cantidad estandar:</strong> <?php echo $usuario['can_pro']; ?></li>
+          <li class="list-group-item"><strong>Tiempo estandar:</strong> <?php echo $usuario['tie_pro']; ?></li>
+        </ul>
+      </div>
+      
 <button type="button" onclick="history.back()"   class="btn btn-primary">Volver</button>
 <a href="index.php?action=modify&id=<?php echo $usuario['id_pro']; ?>" class="btn btn-primary">Editar</a>
 </body></center>

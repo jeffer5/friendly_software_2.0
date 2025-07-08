@@ -24,7 +24,7 @@
         </div>
     </nav>
 
-        <h1 id="title">Actualizar Estandar</h1>
+        <h1 id="title">Actualizar Usuario</h1>
 
         
 
@@ -64,6 +64,12 @@
                     <label for="staticEmail" class="col-sm-3 col-form-label dat">Numero de documento</label>
                     <div class="col-sm-8">
                     <input type="number" class="form-control" id="staticEmail" name="ndo_usu2" value=<?php echo $usuario['ndo_usu']; ?> required>
+                    </div>
+                </div> <br>
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-3 col-form-label dat">Correo electronico</label>
+                    <div class="col-sm-8">
+                    <input type="email" class="form-control" id="staticEmail" name="ema_usu2" value=<?php echo $usuario['ema_usu']; ?> required>
                     </div>
                 </div> <br>
                 <div class="form-group row">

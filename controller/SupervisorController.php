@@ -201,6 +201,7 @@ class SupervisorController {
                 'ape_usu' => $_POST['ape_usu2'],
                 'tdo_usu' => $_POST['tdo_usu2'],
                 'ndo_usu' => $_POST['ndo_usu2'],
+                'ema_usu' => $_POST['ema_usu2'],
                 'tel_usu' => $_POST['tel_usu2'],
                 'usu_usu' => $_POST['usu_usu2'],
                 'rol_usu' => $_POST['rol_usu2'],
