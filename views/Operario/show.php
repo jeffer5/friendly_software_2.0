@@ -45,7 +45,5 @@
 </div>
 </div>
 </div>
-<button type="button" onclick="history.back()"   class="btn btn-primary">Volver</button>
-<a href="index.php?action=modify&id=<?php echo $usuario['id_pro']; ?>" class="btn btn-primary">Editar</a>
 </body></center>
 </html>
