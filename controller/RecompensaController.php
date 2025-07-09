@@ -51,16 +51,23 @@ class RecompensaController {
     }
 
     // --- Acción para procesar el formulario de actualización de una recompensa/evento ---
-    public function actualizarRecompensas() { // Renombré para mayor claridad
+     public function actualizarRecompensas() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Asegúrate de que todos los campos esperados estén presentes
-            if (isset($_POST['id_rec'], $_POST['titulo'], $_POST['descripcion'], $_POST['activo'])) {
-                $id_rec = (int)$_POST['id_rec']; // Castear a int
+            // Asegúrate de que los campos obligatorios estén presentes
+            // Se eliminó $_POST['activo'] de esta verificación inicial porque es opcional
+            if (isset($_POST['id_rec'], $_POST['titulo'], $_POST['descripcion'])) {
+                $id_rec = (int)$_POST['id_rec'];
                 $titulo = trim($_POST['titulo']);
                 $descripcion = trim($_POST['descripcion']);
-                // Los checkboxes solo se envían si están marcados. Si no está marcado, $_POST['activo'] no existirá o será 'off'.
-                // Convertir a booleano: '1' para true, '0' o no presente para false.
-                $activo = (isset($_POST['activo']) && $_POST['activo'] == '1') ? true : false;
+
+                // Manejar la casilla de verificación 'activo' por separado
+                // Si la casilla está marcada, $_POST['activo'] será '1'.
+                // Si la casilla está desmarcada, $_POST['activo'] no estará definida.
+                $activo = isset($_POST['activo']) ? 1 : 0; // Asigna 1 (verdadero) si está marcada, 0 (falso) si no.
+
+                // También podrías usar un booleano si tu columna de base de datos es booleana:
+                // $activo = isset($_POST['activo']) ? true : false;
+
 
                 $success = $this->recompensaModel->updateRecompensaEvento($id_rec, $titulo, $descripcion, $activo);
 
@@ -72,23 +79,21 @@ class RecompensaController {
                 }
             } else {
                 session_start();
-                $_SESSION['error'] = "Datos de actualización incompletos.";
+                $_SESSION['error'] = "Datos de actualización incompletos. Asegúrate de rellenar el título y la descripción."; // Mensaje de error más específico
             }
         } else {
-            // Si no es POST, significa que se está pidiendo el formulario de edición
-            // Necesitarás un ID para cargar los datos en el formulario
+            // ... (manejo existente de GET para mostrar el formulario de edición) ...
             if (isset($_GET['id'])) {
                 $id_rec = (int)$_GET['id'];
                 $recompensa_a_editar = $this->recompensaModel->getRecompensaEventoById($id_rec);
                 if (!$recompensa_a_editar) {
                     session_start();
                     $_SESSION['error'] = "Recompensa/Evento no encontrado.";
-                    header('Location: index.php?action=gestionRecompensas'); // Redirige si no encuentra
+                    header('Location: index.php?action=gestionRecompensas');
                     exit();
                 }
-                // Carga la vista del formulario de edición. Podría ser una vista dedicada o la misma de gestión
-                require_once 'views/RecompensasEventos/form_editar_recompensa.php'; // Necesitas crear esta vista
-                return; // Importante para no cargar otra vista
+                require_once 'views/RecompensasEventos/form_editar_recompensa.php';
+                return;
             } else {
                 session_start();
                 $_SESSION['error'] = "ID de recompensa/evento no proporcionado para edición.";
@@ -96,10 +101,11 @@ class RecompensaController {
                 exit();
             }
         }
-        header('Location: index.php?action=gestionRecompensas'); // Redirige después de POST o si algo falla
+        header('Location: index.php?action=gestionRecompensas');
         exit();
     }
 
+    
     // --- Acción para eliminar una recompensa/evento ---
     public function eliminarRecompensas() { // Renombré para mayor claridad
         // Para DELETE, es común recibir el ID por GET
