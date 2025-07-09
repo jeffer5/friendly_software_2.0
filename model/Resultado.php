@@ -70,20 +70,30 @@ class Resultado{
     }
 
 
+ public function getRankingByOrdersCompleted($fecha1, $fecha2) {
+        $query = $this->db->prepare("
+            SELECT
+                u.usu_usu,
+                u.nom_usu,
+                u.ape_usu,
+                COUNT(o.id_ord) AS total_ordenes_completadas,
+                SUM(e.tot_efi) AS suma_eficiencia_total,
+                AVG(e.tot_efi) AS promedio_eficiencia
+            FROM eficiencia e
+            JOIN indicador i ON e.id_ind_fk = i.id_ind
+            JOIN detalle_orden d ON i.id_det_fk = d.id_det
+            JOIN usuario u ON d.id_usu_fk = u.id_usu
+            JOIN orden o ON d.id_ord_fk = o.id_ord
+            WHERE i.fec_ind BETWEEN ? AND ?
+            -- Si solo quieres contar órdenes marcadas como 'Completado', descomenta la siguiente línea:
+            -- AND o.estado_ord = 'Completado'
+            GROUP BY u.id_usu, u.usu_usu, u.nom_usu, u.ape_usu
+            ORDER BY total_ordenes_completadas DESC, promedio_eficiencia DESC
+        ");
 
-     public function quantityOrderByUsu($usu_usu) {
-        $query = $this->db->prepare("SELECT COUNT(*) as total                  
-                                                FROM eficiencia e
-                                                JOIN indicador i ON id_ind_fk = i.id_ind
-                                                JOIN detalle_orden d ON i.id_det_fk = d.id_det
-                                                JOIN promedio p ON i.id_pro_fk = p.id_pro
-                                                JOIN usuario u ON d.id_usu_fk = u.id_usu
-                                                JOIN orden o ON d.id_ord_fk = o.id_ord
-                                                WHERE usu_usu = ?");
-    
-        $query->execute([$usu_usu]);
+        $query->execute([$fecha1, $fecha2]);
+
         return $query->fetchAll(PDO::FETCH_ASSOC);
-        
     }
 
 

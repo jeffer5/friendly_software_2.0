@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap');
+ 
+ body{
+    background-image: url('../img/findito.png');
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    Font-family:"Cal Sans", sans-serif;
+ }
+ 
+ .target-audience {
+    background-color: #eef2f5;
+    text-align: center;
+    width: 94%;
+    margin-left: 3%;
+    border-radius: 10px;
+  }
+
+  .container{
+    text-align: center;
+    width: 40%;
+    height: auto;
+    margin-left: 35%;
+    margin-top: 5%;
+    border-radius: 10px;
+    Font-family:"Cal Sans", sans-serif;
+    
+  }
+
+  .container h1{
+    color:aquamarine;
+    font-size: 50px;
+  }
+
+  .container p{
+    color: white;
+    font-size: 28px;
+  }
+
+
+
+      body {
+      
+      Font-family:"Cal Sans", sans-serif;
+    }
+
+    .sidebar {
+      height: 100vh;
+      width: 250px;
+      position: fixed;
+      background-color: #111;
+      padding-top: 20px;
+      overflow-y: auto;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      padding: 15px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .sidebar a:hover {
+      background-color: #575757;
+    }
+
+    .submenu {
+      display: none;
+      background-color: #222;
+      padding-left: 20px;
+    }
+
+    .submenu a {
+      padding: 12px 15px;
+      font-size: 14px;
+    }
+
+    .content {
+      
+      padding: 20px;
+      Font-family:"Cal Sans", sans-serif;
+      
+    
+    }
+
+    .content p{
+       color: white;
+    }
+
+    .content h1{
+         color: aquamarine;
+         margin-left: 32%;
+        
+    }
+
+    .toggle-icon {
+      float: right;
+      transition: transform 0.3s ease;
+    }
+
+    .rotate {
+      transform: rotate(90deg);
+    }
+
+    hr{
+        border: white 2px solid;
+    }
+
+    #carru{
+        margin-top: 4%;
+        margin-left: 11%;
+        
+    }
+
+    #carrusel{
+        border-radius: 20px;
+       
+        box-shadow: 2px -2px 7px 2px white, -2px 2px 7px 2px #FF1493 ;
+    }
+
+
+    .content label{
+    color: white;
+
+    }
+
+    #usu{
+        height: 30px;
+        margin-left: 2%;
+        border-radius: 2px;
+    }
+
+
+    #btn{
+        height: 30px;
+        width: 70px;
+        background-color: aquamarine;
+        border-radius: 2%;
+    }
+
+  .table.table-striped.table-dark{
+    width: 70%;
+    margin-left: 12%;
+    margin-top: 5%;
+    box-shadow: 2px -2px 7px 2px #0CFFF4, -2px 2px 7px 2px #FF1493 ;
+  
+  }
+
+  .table.table-striped th{
+    background-color: #FF1493 !important;
+    color: white !important;
+    Font-family:"Cal Sans", sans-serif;
+    font-size: 20px;
+    
+  }
+
+  .table.table-striped td{
+
+   Font-family:"Cal Sans", sans-serif;
+
+    
+  }
+
+  .card-body p {
+
+    color:#111;
+  }
+
+

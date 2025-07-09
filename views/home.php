@@ -128,6 +128,36 @@
                 </div>
             </p>
         </section>
+
+
+
+        <section class="rewards">
+            <h2>Recompensas</h2>
+            <div class="steps"> <!-- Contenedor de pasos -->
+                <!-- Paso 1: Recolectar -->
+                 <div class="step1">
+                    <h3>Avanza</h3>
+                    <img src="img/recompensa2.jpg" alt="">
+                    <p>Un equipo en constante aprendizaje es valioso en cualquier organizacion, implementar recompensas es una gran 
+                        forma de motivar a tus colaboradores.
+                    </p>
+                </div>
+                <!-- Paso 2: Analizar -->
+                <div class="step1">
+                    <h3>Reconoce</h3>
+                    <img src="img/recompensa1.jpg" alt="">
+                    <p>Muestra el reconocimiento apropiado a tus colaboradores, un empleado feliz es un empleado eficaz.</p>
+                </div>
+                <!-- Paso 3: Actuar -->
+                <div class="step1">
+                    <h3>Brinda</h3>
+                    <img src="img/recompensa3.jpg" alt="">
+                    <p>Al brindar oportunidades de creciemiento y reconcimientos al arduo trabajo tus coloboradores desarrollarán 
+                       mejores habilidades y tu contribuiras al crecimiento de valiosas personas.
+                    </p>
+                </div>
+            </div>
+        </section>
   
     </main>
 

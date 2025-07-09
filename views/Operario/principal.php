@@ -23,6 +23,7 @@ $user = $_SESSION['user'];
           </button>
           <div class="collapse navbar-collapse" id="menu">
             <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link" href="index.php?action=verRecompensasEmpleados">Recompensas</a></li>
               <li class="nav-item"><a class="nav-link" href="index.php?action=logout">Cerrar sesion</a></li>
             </ul>
           </div>

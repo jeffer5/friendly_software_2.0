@@ -82,6 +82,32 @@ class ResultadoController{
 
     
     }
+
+
+   public function rankingUser(){
+        $fecha1 = null; // Inicializa las variables a null
+        $fecha2 = null;
+
+        // Verifica si las fechas han sido enviadas por POST
+        if (isset($_POST['fecha1']) && isset($_POST['fecha2'])) {
+            $fecha1 = $_POST['fecha1'];
+            $fecha2 = $_POST['fecha2'];
+
+            // Solo llama a la función de ranking si las fechas están definidas
+            $ranking_operarios = $this->resultado->getRankingByOrdersCompleted($fecha1, $fecha2);
+        } else {
+            // Si las fechas no se han enviado, el ranking estará vacío inicialmente
+            $ranking_operarios = [];
+        }
+
+        // Si aún necesitas estas variables para la tabla detallada o algo más:
+        // $ordenes = []; // Inicializa a vacío si no hay fechas seleccionadas
+        // if ($fecha1 && $fecha2) {
+        //     $ordenes = $this->resultado->conData($fecha1, $fecha2);
+        // }
+        
+        require_once 'views/Resultados/ranking.php';
+    }
    
 
 

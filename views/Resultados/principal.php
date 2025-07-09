@@ -29,6 +29,7 @@
         </div>
 
          <a href="index.php?action=showAllEfi">Eficiencias completas</a>
+         <a href="index.php?action=ranking">Ranking operarios</a>
           <a href="index.php?action=supervisor_dashboard">Salir</a>
         <a href="index.php?action=logout">Cerrar sesión</a>
     </div>

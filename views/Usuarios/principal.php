@@ -27,6 +27,7 @@ header("Expires: 0"); // Proxies
           </button>
           <div class="collapse navbar-collapse" id="menu">
             <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link" href="index.php?action=gestionRecompensas">Recompensas</a></li>
               <li class="nav-item"><a class="nav-link" href="index.php?action=logout">Cerrar sesion</a></li>
             </ul>
           </div>

@@ -139,6 +139,10 @@ main {
     border-radius: 10px;
     color: antiquewhite;
   }
+
+  .target-audience p{
+    font-size: 30px;
+  }
   
   .testimonials {
     background-color: #f4f7fa;
@@ -260,3 +264,49 @@ main {
   margin-top: 2%;
 }
 
+
+.rewards {
+    
+    text-align: center;
+    width: 94%;
+    margin: 0 auto;
+    border-radius: 10px;
+    color: antiquewhite;
+  }
+
+
+.step1 {
+    
+    flex: 1 1 250px;
+    max-width: 380px;
+    text-align: center;
+    background-color: #7c199b;
+    padding: 2%;
+    border-radius: 20px;
+  }
+
+  .step1:hover{
+    scale: 1.1;
+  }
+
+  
+  .step1 img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 1rem;
+    border-radius: 100px;
+  }
+
+
+  h2{
+    margin-bottom: 2%;
+  }
+
+  h2:hover{
+    scale: 1.2;
+
+  }
+
+  main p{
+    font-size: 20px;
+  }

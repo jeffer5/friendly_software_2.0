@@ -10,6 +10,7 @@ require_once 'controller/EstandarController.php';
 require_once 'controller/OrdenasigController.php';
 require_once 'controller/OperarioController.php';
 require_once 'controller/ResultadoController.php';
+require_once 'controller/RecompensaController.php';
 
 
 
@@ -23,6 +24,7 @@ $estandarController = new EstandarController();
 $ordenasigController = new OrdenasigController();
 $operarioController = new OperarioController();
 $resultadoController = new ResultadoController();
+$recompensaController = new RecompensaController();
 
 
 
@@ -321,6 +323,47 @@ switch ($action) {
     case 'conByData2':
         $resultadoController->conByData2();
         break;
+    case 'ranking':
+        $resultadoController->rankingUser();
+        break;
+
+    // recompensa
+    case 'gestionRecompensas': // Acción para mostrar el formulario y la tabla de gestión
+        $recompensaController->mostrarFormularioYLista();
+        break;
+    case 'guardarRecompensaEvento': // Acción para procesar la creación (formulario POST)
+        $recompensaController->guardarRecompensaEvento();
+        break;
+    case 'editarRecompensa': // Acción para cargar el formulario de edición (con ID por GET)
+        if ($id !== null) {
+            $recompensaController->actualizarRecompensas(); // Este método manejará GET para el formulario
+        } else {
+            // Manejar error si no hay ID
+            session_start();
+            $_SESSION['error'] = "ID de recompensa/evento no proporcionado para edición.";
+            header('Location: index.php?action=gestionRecompensas');
+            exit();
+        }
+        break;
+    case 'actualizarRecompensaEvento': // Acción para procesar la actualización (formulario POST)
+        $recompensaController->actualizarRecompensas(); // Este método manejará POST para la actualización
+        break;
+    case 'eliminarRecompensa': // Acción para eliminar (con ID por GET)
+        if ($id !== null) {
+            $recompensaController->eliminarRecompensas();
+        } else {
+            // Manejar error si no hay ID
+            session_start();
+            $_SESSION['error'] = "ID de recompensa/evento no proporcionado para eliminar.";
+            header('Location: index.php?action=gestionRecompensas');
+            exit();
+        }
+        break;
+    case 'verRecompensasEmpleados': // Nueva acción para la vista de empleados (solo activos)
+        $recompensaController->mostrarRecompensasActivas();
+        break;
+
+
  
  // forgot password
 
