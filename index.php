@@ -11,6 +11,8 @@ require_once 'controller/OrdenasigController.php';
 require_once 'controller/OperarioController.php';
 require_once 'controller/ResultadoController.php';
 require_once 'controller/RecompensaController.php';
+require_once 'controller/IndicadorController.php';
+
 
 
 
@@ -25,6 +27,7 @@ $ordenasigController = new OrdenasigController();
 $operarioController = new OperarioController();
 $resultadoController = new ResultadoController();
 $recompensaController = new RecompensaController();
+$indicadorController = new IndicadorController();
 
 
 
@@ -362,8 +365,6 @@ switch ($action) {
     case 'verRecompensasEmpleados': // Nueva acción para la vista de empleados (solo activos)
         $recompensaController->mostrarRecompensasActivas();
         break;
-
-
  
  // forgot password
 
@@ -379,8 +380,26 @@ switch ($action) {
     case 'updatePassword': // Este es el POST del formulario de reset_password.php
         $loginController->updatePassword();
         break;
-        
-  
+    
+    //indicador controller
+    case 'mostrarIndicadores':
+        $indicadorController->mostrarIndicadores();
+        break;
+    case 'buscarIndicadorId':
+        $indicadorController->buscarIndicadorId();
+        break;
+     case 'borrarIndicador':
+        // Aquí obtén el ID de $_GET directamente
+        if (isset($_GET['id'])) {   
+            $indicadorController->borrarIndicador($_GET['id']); // Eliminar usuario especifico
+        } else {
+            echo "ID no proporcionado.";
+        }
+        break;
+    
+    case 'updateIndicador': // ¡NUEVO! Manejar actualización de Indicador
+        $indicadorController->updateIndicador(); // Este método ya no necesita el ID por GET
+        break;
 
 
 }

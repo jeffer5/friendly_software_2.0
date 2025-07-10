@@ -61,6 +61,10 @@ header("Expires: 0"); // Proxies
                     <h2>Estandares</h2>
             </div>
             <div class="steps"> <!-- Contenedor de pasos -->
+                    <a href="index.php?action=mostrarIndicadores" ><img class="image" src="img/indicador_copy.png" alt=""></a>
+                    <h2>Indicadores</h2>
+            </div>
+            <div class="steps"> <!-- Contenedor de pasos -->
                     <a href="index.php?action=principal" ><img class="image" src="img/results.png" alt=""></a>
                     <h2>Resultados</h2>
             </div>
